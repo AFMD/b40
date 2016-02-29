@@ -124,7 +124,7 @@ maskUniShaftDelta = 1 # this is so the sample wheel doesn't hit the mask motor b
 sampleUniShaftDelta = 0
 
 # stepper motor
-motor = STEP2Solid("zss_25_axial.step")
+motor = STEP2Solid("input/zss_25_axial.step")
 motorShaftLength=9.5
 motorShaftD=3
 motorWidth=25
@@ -345,32 +345,26 @@ sampleHub = translate(sampleHub,0,0,sampleWheelheight+sampleWheelThickness)
 sampleBlockA=union(sampleBlockA,translate(sampleBlockA,0,0,sampleMotorBarOffset))
 sampleBlockB=union(sampleBlockB,translate(sampleBlockB,0,0,sampleMotorBarOffset))
 
-solid2STEP(maskMotorBar, "output/maskMotorBar.step")
-solid2STEP(maskBlockA, "output/maskBlockA.step")
-solid2STEP(maskBlockB, "output/maskBlockB.step")
-solid2STEP(maskHub, "output/maskHub.step")
-solid2STEP(topFlange, "output/topFlange.step")
-solid2STEP(body, "output/body.step")
-solid2STEP(vPortCap, "output/vPortCap.step")
-solid2STEP(floatingPlate, "output/floatingPlate.step")
-solid2STEP(bottomFlange, "output/bottomFlange.step")
-solid2STEP(maskMotor, "output/maskMotor.step")
-solid2STEP(evapPlane, "output/evapPlane.step")
-solid2STEP(maskWheel, "output/maskWheel.step")
-solid2STEP(ballisticTrajectory, "output/ballisticTrajectory.step")
+b40_chamber=[topFlange,body,vPortCap,floatingPlate,bottomFlange,ballisticTrajectory,evapPlane]
+wheelsAssembly=[maskMotorBar,maskBlockA,maskBlockB,maskHub,floatingPlate,maskMotor,maskWheel,sampleMotorBar,sampleBlockA,sampleBlockB,sampleHub,sampleMotor,sampleWheel,sampleTrayA,sampleTrayB,sampleTrayC,sampleTrayD]
+everything = [maskMotorBar,maskBlockA,maskBlockB,maskHub,topFlange,body,vPortCap,floatingPlate,bottomFlange,maskMotor,evapPlane,maskWheel,ballisticTrajectory,sampleMotorBar,sampleBlockA,sampleBlockB,sampleHub,sampleMotor,sampleWheel,sampleTrayA,sampleTrayB,sampleTrayC,sampleTrayD]
 
-solid2STEP(sampleMotorBar, "output/sampleMotorBar.step")
-solid2STEP(sampleBlockA, "output/sampleBlockA.step")
-solid2STEP(sampleBlockB, "output/sampleBlockB.step")
-solid2STEP(sampleHub, "output/sampleHub.step")
-solid2STEP(sampleMotor, "output/sampleMotor.step")
-solid2STEP(sampleWheel, "output/sampleWheel.step")
-solid2STEP(sampleTrayA, "output/sampleTrayA.step")
-solid2STEP(sampleTrayB, "output/sampleTrayB.step")
-solid2STEP(sampleTrayC, "output/sampleTrayC.step")
-solid2STEP(sampleTrayD, "output/sampleTrayD.step")
+solid2STEP(wheelsAssembly, "output/wheelsAssembly.step")
+solid2STEP(b40_chamber, "output/b40_chamber.step")
+solid2STEP(everything, "output/everything.step")
 
-entireChamber = [maskMotorBar,maskBlockA,maskBlockB,maskHub,topFlange,body,vPortCap,floatingPlate,bottomFlange,maskMotor,evapPlane,maskWheel,ballisticTrajectory,sampleMotorBar,sampleBlockA,sampleBlockB,sampleHub,sampleMotor,sampleWheel,sampleTrayA,sampleTrayB,sampleTrayC,sampleTrayD]
-solid2STEP(entireChamber, "output/entireChamber.step")
+solid2STEP(maskMotorBar, "output/parts_to_make/maskMotorBar.step")
+solid2STEP(maskBlockA, "output/parts_to_make/maskBlockA.step")
+solid2STEP(maskBlockB, "output/parts_to_make/maskBlockB.step")
+solid2STEP(maskWheel, "output/parts_to_make/maskWheel.step")
+
+solid2STEP(sampleMotorBar, "output/parts_to_make/sampleMotorBar.step")
+solid2STEP(sampleBlockA, "output/parts_to_make/sampleBlockA.step")
+solid2STEP(sampleBlockB, "output/parts_to_make/sampleBlockB.step")
+solid2STEP(sampleWheel, "output/parts_to_make/sampleWheel.step")
+solid2STEP(sampleTrayA, "output/parts_to_make/sampleTrayA.step")
+solid2STEP(sampleTrayB, "output/parts_to_make/sampleTrayB.step")
+solid2STEP(sampleTrayC, "output/parts_to_make/sampleTrayC.step")
+solid2STEP(sampleTrayD, "output/parts_to_make/sampleTrayD.step")
 
 print "break"
