@@ -13,7 +13,7 @@ if internet:
     (fn,hd) = urllib.urlretrieve('https://raw.githubusercontent.com/greysAcademicCode/heatedXYZ/master/python/ezFreeCAD/functions.py')
     execfile(fn)
 else:
-    pathToezFreecad="../../heatedXYZ/python/ezFreeCAD"
+    pathToezFreecad="../heatedXYZ/python/ezFreeCAD"
     execfile(pathToezFreecad+"/functions.py")
     
 
@@ -176,8 +176,9 @@ sampleWheelD = maskWheelD
 sampleWheelThickness = 6
 sampleWheel = cylinder(sampleWheelD/2,sampleWheelThickness)
 
-sampleShelfHeight = 1
+sampleShelfHeight = 0.5
 trayShelfHeight = 0.5
+grabberHoleDepth = sampleWheelThickness/2
 sampleWheel2D = loadDXF("sampleWheel2D.dxf")
 trayCutoutStep = difference(extrude(sampleWheel2D["trayOuter"],0,0,trayShelfHeight),extrude(sampleWheel2D["trayOuterStep"],0,0,trayShelfHeight))
 trayCutout = difference(extrude(sampleWheel2D["trayOuter"],0,0,sampleWheelThickness),trayCutoutStep)
@@ -185,14 +186,18 @@ trayCutout = difference(extrude(sampleWheel2D["trayOuter"],0,0,sampleWheelThickn
 sampleCutoutStep = difference(extrude(sampleWheel2D["trayInner"],0,0,sampleShelfHeight),extrude(sampleWheel2D["glassSeat"],0,0,sampleShelfHeight))
 sampleCutout = difference(extrude(sampleWheel2D["trayInner"],0,0,sampleWheelThickness),sampleCutoutStep)
 
+grabberHoles = [Part.Face(Part.Wire(edge)) for edge in sampleWheel2D["grabberHoles"]] # facify the edges from the DXF
+grabberHoles = extrude(grabberHoles,0,0,grabberHoleDepth)
+grabberHoles = translate(grabberHoles,0,0,sampleWheelThickness-grabberHoleDepth)
+
 sampleTray = difference(trayCutout,sampleCutout)
+sampleTray = difference(sampleTray,grabberHoles)
 sampleTrays = circArray(sampleTray,4,0,0,0,0,0,1)
 
 generatePrototype = True
 if generatePrototype is True:
     # 3D print the sample tray for testing:
     solid2STL(sampleTray, "output/sampleTray.stl")
-    #solid2STEP(sampleTray, "output/sampleTray.step")
 
 trayCutouts = circArray(trayCutout,4,0,0,0,0,0,1) # duplicate it
 sampleWheel = difference(sampleWheel,trayCutouts)
