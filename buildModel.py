@@ -1,21 +1,7 @@
 #!/usr/bin/env python2
 from __future__ import division
 
-# get FreeCAD into sys.path
-FREECADPATH = '/usr/lib/freecad' # path to your FreeCAD.so or FreeCAD.dll file
-import sys
-sys.path.append(FREECADPATH)
-
-# inline the ezFreeCAD functions
-internet=False
-if internet:
-    import urllib
-    (fn,hd) = urllib.urlretrieve('https://raw.githubusercontent.com/greysAcademicCode/heatedXYZ/master/python/ezFreeCAD/functions.py')
-    execfile(fn)
-else:
-    pathToezFreecad="../heatedXYZ/python/ezFreeCAD"
-    execfile(pathToezFreecad+"/functions.py")
-    
+from ezFreeCAD import *
 
 # from measurements [mm]
 #top and bottom lips
