@@ -333,11 +333,15 @@ sampleBlockB=union(sampleBlockB,translate(sampleBlockB,0,0,sampleMotorBarOffset)
 
 b40_chamber=[topFlange,body,vPortCap,floatingPlate,bottomFlange,ballisticTrajectory,evapPlane]
 wheelsAssembly=[maskMotorBar,maskBlockA,maskBlockB,maskHub,floatingPlate,maskMotor,maskWheel,sampleMotorBar,sampleBlockA,sampleBlockB,sampleHub,sampleMotor,sampleWheel,sampleTrayA,sampleTrayB,sampleTrayC,sampleTrayD]
+
+toMakeAssembly=[maskMotorBar,maskBlockA,maskBlockB,maskWheel,sampleMotorBar,sampleBlockA,sampleBlockB,sampleWheel,sampleTrayA,sampleTrayB,sampleTrayC,sampleTrayD]
+
 everything = [maskMotorBar,maskBlockA,maskBlockB,maskHub,topFlange,body,vPortCap,floatingPlate,bottomFlange,maskMotor,evapPlane,maskWheel,ballisticTrajectory,sampleMotorBar,sampleBlockA,sampleBlockB,sampleHub,sampleMotor,sampleWheel,sampleTrayA,sampleTrayB,sampleTrayC,sampleTrayD]
 
 solid2STEP(wheelsAssembly, "output/wheelsAssembly.step")
 solid2STEP(b40_chamber, "output/b40_chamber.step")
 solid2STEP(everything, "output/everything.step")
+solid2STEP(toMakeAssembly, "output/toMakeAssembly.step")
 
 solid2STEP(maskMotorBar, "output/parts_to_make/maskMotorBar.step")
 solid2STEP(maskBlockA, "output/parts_to_make/maskBlockA.step")
