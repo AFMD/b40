@@ -5,8 +5,6 @@ import sys
 sys.path.append('/usr/lib/freecad') # path to your FreeCAD.so or FreeCAD.dll file
 import FreeCAD
 
-import warnings
-sys.path.append('./ezFreeCAD') # path to ezFreeCAD
 from ezFreeCAD import *
 
 # from measurements [mm]
