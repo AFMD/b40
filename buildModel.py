@@ -170,16 +170,17 @@ sampleShelfHeight = 0.5
 trayShelfHeight = 0.5
 grabberHoleDepth = sampleWheelThickness/2
 sampleWheel2D = loadDXF("sampleWheel2D.dxf")
-trayCutoutStep = difference(extrude(sampleWheel2D["trayOuter"],0,0,trayShelfHeight),extrude(sampleWheel2D["trayOuterStep"],0,0,trayShelfHeight))
-trayCutout = difference(extrude(sampleWheel2D["trayOuter"],0,0,sampleWheelThickness),trayCutoutStep)
+trayCutoutStep = difference(extrude(sampleWheel2D["trayOuter"][0],0,0,trayShelfHeight),extrude(sampleWheel2D["trayOuterStep"][0],0,0,trayShelfHeight))
+trayCutout = difference(extrude(sampleWheel2D["trayOuter"][0],0,0,sampleWheelThickness),trayCutoutStep)
 
-sampleCutoutStep = difference(extrude(sampleWheel2D["trayInner"],0,0,sampleShelfHeight),extrude(sampleWheel2D["glassSeat"],0,0,sampleShelfHeight))
-sampleCutout = difference(extrude(sampleWheel2D["trayInner"],0,0,sampleWheelThickness),sampleCutoutStep)
+sampleCutout = translate(extrude(sampleWheel2D["trayInner"][0],0,0,sampleWheelThickness-trayShelfHeight),0,0,trayShelfHeight)
+sampleCutout = union(sampleCutout, extrude(sampleWheel2D["glassSeat"][0],0,0,sampleShelfHeight))
 
 grabberHoles = [Part.Face(Part.Wire(edge)) for edge in sampleWheel2D["grabberHoles"]] # facify the edges from the DXF
 grabberHoles = extrude(grabberHoles,0,0,grabberHoleDepth)
 grabberHoles = translate(grabberHoles,0,0,sampleWheelThickness-grabberHoleDepth)
 
+sampleTray = trayCutout
 sampleTray = difference(trayCutout,sampleCutout)
 sampleTray = difference(sampleTray,grabberHoles)
 sampleTrays = circArray(sampleTray,4,0,0,0,0,0,1)
