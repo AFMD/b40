@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <HeeksCAD_Document>
-    <Program machine="GRBL" output_file="/tmp/heekscnc-acX839.ngc" output_file_name_follows_data_file_name="1" program="# coding=UTF8&#x0A;# No troubled Microsoft Windows detected&#x0A;import sys&#x0A;sys.path.insert(0,&apos;/usr/lib/heekscnc/&apos;)&#x0A;import math&#x0A;import area&#x0A;area.set_units(1)&#x0A;import kurve_funcs&#x0A;import area_funcs&#x0A;from depth_params import depth_params as depth_params&#x0A;&#x0A;from nc.nc import *&#x0A;from nc.grbl import *&#x0A;&#x0A;output(&apos;/home/grey/git/b40/heeks/sampleTrayA.ngc&apos;)&#x0A;program_begin(1, &apos;Program 1&apos;)&#x0A;absolute()&#x0A;metric()&#x0A;set_plane(0)&#x0A;&#x0A;#(6.35 mm End Mill)&#x0A;tool_defn( 4, &apos;6.35 mm End Mill&apos;, {&apos;corner radius&apos;:0, &apos;cutting edge angle&apos;:0, &apos;cutting edge height&apos;:50.8, &apos;diameter&apos;:6.35, &apos;flat radius&apos;:0, &apos;material&apos;:1, &apos;tool length offset&apos;:127, &apos;type&apos;:2, &apos;name&apos;:&apos;6.35 mm End Mill&apos;})&#x0A;tool_change( id=4)&#x0A;spindle(7000)&#x0A;feedrate_hv(50, 20)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(0.1), float(0), float(0), float(-5.7), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;drill(x=-25.89637165, y=-25.89637165, dwell=5, depthparams = depthparams, retract_mode=1, spindle_mode=0, internal_coolant_on=0, rapid_to_clearance=0)&#x0A;drill(x=25.89637165, y=25.89637165, dwell=5, depthparams = depthparams, retract_mode=1, spindle_mode=0, internal_coolant_on=0, rapid_to_clearance=0)&#x0A;drill(x=-25.89637165, y=25.89637165, dwell=5, depthparams = depthparams, retract_mode=1, spindle_mode=0, internal_coolant_on=0, rapid_to_clearance=0)&#x0A;drill(x=25.89637165, y=-25.89637165, dwell=5, depthparams = depthparams, retract_mode=1, spindle_mode=0, internal_coolant_on=0, rapid_to_clearance=0)&#x0A;end_canned_cycle()&#x0A;spindle(7000)&#x0A;feedrate_hv(200, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(0.25), float(0), float(0), float(-0.2), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;roll_radius = float(2)&#x0A;offset_extra = 0&#x0A;comment(&apos;outer&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-31.65202003, 30.15202027))&#x0A;curve.append(area.Point(-31.65202003, -28.93779772))&#x0A;curve.append(area.Vertex(1, area.Point(-31.12863868, -30.07631247), area.Point(-30.15202025, -28.93779774)))&#x0A;curve.append(area.Vertex(-1, area.Point(-30.07631247, -31.12863868), area.Point(-37.47665863, -37.47665863)))&#x0A;curve.append(area.Vertex(1, area.Point(-28.93779772, -31.65202003), area.Point(-28.93779774, -30.15202025)))&#x0A;curve.append(area.Point(30.15202027, -31.65202003))&#x0A;curve.append(area.Vertex(1, area.Point(31.65202003, -30.15202027), area.Point(30.15202027, -30.15202027)))&#x0A;curve.append(area.Point(31.65202074, 25.45646426))&#x0A;curve.append(area.Vertex(1, area.Point(31.25011609, 26.4783177), area.Point(30.1520207, 25.4564632)))&#x0A;curve.append(area.Vertex(1, area.Point(26.4783177, 31.25011609), area.Point(-37.47665891, -37.47665891)))&#x0A;curve.append(area.Vertex(1, area.Point(25.45646426, 31.65202074), area.Point(25.4564632, 30.1520207)))&#x0A;curve.append(area.Point(-30.15202027, 31.65202003))&#x0A;curve.append(area.Vertex(1, area.Point(-31.65202003, 30.15202027), area.Point(-30.15202027, 30.15202027)))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, False)&#x0A;roll_on = None&#x0A;roll_off = None&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;on&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;spindle(7000)&#x0A;feedrate_hv(200, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(0.25), float(0), float(0), float(-5.7), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;a = area.Area()&#x0A;entry_moves = []&#x0A;c = area.Curve()&#x0A;c.append(area.Vertex(0, area.Point(-19.20000038, 19.20000038), area.Point(0, 0)))&#x0A;c.append(area.Vertex(0, area.Point(19.20000038, 19.20000038), area.Point(0, 0)))&#x0A;c.append(area.Vertex(0, area.Point(19.20000042, -19.20000043), area.Point(0, 0)))&#x0A;c.append(area.Vertex(0, area.Point(-19.20000042, -19.20000043), area.Point(0, 0)))&#x0A;c.append(area.Vertex(0, area.Point(-19.20000038, 19.20000038), area.Point(0, 0)))&#x0A;a.append(c)&#x0A;c = area.Curve()&#x0A;c.append(area.Vertex(0, area.Point(-25.02500038, 28.20000038), area.Point(0, 0)))&#x0A;c.append(area.Vertex(0, area.Point(25.02500038, 28.20000038), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(28.20000038, 25.02500038), area.Point(25.02500038, 25.02500038)))&#x0A;c.append(area.Vertex(0, area.Point(28.2000004, -25.0250004), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(25.0250004, -28.2000004), area.Point(25.02500035, -25.02500035)))&#x0A;c.append(area.Vertex(0, area.Point(-25.0250004, -28.2000004), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(-28.2000004, -25.0250004), area.Point(-25.02500035, -25.02500035)))&#x0A;c.append(area.Vertex(0, area.Point(-28.20000038, 25.02500038), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(-25.02500038, 28.20000038), area.Point(-25.02500038, 25.02500038)))&#x0A;a.append(c)&#x0A;&#x0A;a.Reorder()&#x0A;entry_style = 0&#x0A;area_funcs.pocket(a, tool_diameter/2, 0.3, 3, depthparams, 1, True, False, 0,False, None,&apos;conventional&apos;)&#x0A;rapid(z = depthparams.clearance_height)&#x0A;spindle(7000)&#x0A;feedrate_hv(200, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(7), float(0), float(0), float(-5.7), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;roll_radius = float(2)&#x0A;offset_extra = 0.3&#x0A;comment(&apos;inner&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-25.02500038, 28.20000038))&#x0A;curve.append(area.Point(25.02500038, 28.20000038))&#x0A;curve.append(area.Vertex(-1, area.Point(28.20000038, 25.02500038), area.Point(25.02500038, 25.02500038)))&#x0A;curve.append(area.Point(28.2000004, -25.0250004))&#x0A;curve.append(area.Vertex(-1, area.Point(25.0250004, -28.2000004), area.Point(25.02500035, -25.02500035)))&#x0A;curve.append(area.Point(-25.0250004, -28.2000004))&#x0A;curve.append(area.Vertex(-1, area.Point(-28.2000004, -25.0250004), area.Point(-25.02500035, -25.02500035)))&#x0A;curve.append(area.Point(-28.20000038, 25.02500038))&#x0A;curve.append(area.Vertex(-1, area.Point(-25.02500038, 28.20000038), area.Point(-25.02500038, 25.02500038)))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, False)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;right&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;feedrate_hv(50, 50)&#x0A;flush_nc()&#x0A;offset_extra = 0.0&#x0A;depthparams.step_down = 7&#x0A;depthparams.z_finish_depth = 0.0&#x0A;comment(&apos;inner&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-25.02500038, 28.20000038))&#x0A;curve.append(area.Point(25.02500038, 28.20000038))&#x0A;curve.append(area.Vertex(-1, area.Point(28.20000038, 25.02500038), area.Point(25.02500038, 25.02500038)))&#x0A;curve.append(area.Point(28.2000004, -25.0250004))&#x0A;curve.append(area.Vertex(-1, area.Point(25.0250004, -28.2000004), area.Point(25.02500035, -25.02500035)))&#x0A;curve.append(area.Point(-25.0250004, -28.2000004))&#x0A;curve.append(area.Vertex(-1, area.Point(-28.2000004, -25.0250004), area.Point(-25.02500035, -25.02500035)))&#x0A;curve.append(area.Point(-28.20000038, 25.02500038))&#x0A;curve.append(area.Vertex(-1, area.Point(-25.02500038, 28.20000038), area.Point(-25.02500038, 25.02500038)))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, False)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;right&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;spindle(7000)&#x0A;feedrate_hv(250, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(0.2), float(0), float(0), float(-5.7), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;roll_radius = float(2)&#x0A;feedrate_hv(50, 50)&#x0A;flush_nc()&#x0A;offset_extra = 0.0&#x0A;depthparams.step_down = 7&#x0A;depthparams.z_finish_depth = 0.0&#x0A;comment(&apos;inner&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-25.02500038, 28.20000038))&#x0A;curve.append(area.Vertex(1, area.Point(-28.20000038, 25.02500038), area.Point(-25.02500038, 25.02500038)))&#x0A;curve.append(area.Point(-28.2000004, -25.0250004))&#x0A;curve.append(area.Vertex(1, area.Point(-25.0250004, -28.2000004), area.Point(-25.02500035, -25.02500035)))&#x0A;curve.append(area.Point(25.0250004, -28.2000004))&#x0A;curve.append(area.Vertex(1, area.Point(28.2000004, -25.0250004), area.Point(25.02500035, -25.02500035)))&#x0A;curve.append(area.Point(28.20000038, 25.02500038))&#x0A;curve.append(area.Vertex(1, area.Point(25.02500038, 28.20000038), area.Point(25.02500038, 25.02500038)))&#x0A;curve.append(area.Point(-25.02500038, 28.20000038))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, True)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;left&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;spindle(7000)&#x0A;feedrate_hv(200, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(-5.7), float(0.25), float(0), float(0), float(-6.5), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;roll_radius = float(2)&#x0A;offset_extra = 0.2&#x0A;comment(&apos;ledges&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(4.626013478, -28.20000038))&#x0A;curve.append(area.Vertex(-1, area.Point(2.313006385, -27.20000007), area.Point(4.62601369, -25.02499979)))&#x0A;curve.append(area.Vertex(1, area.Point(-2.313006385, -27.20000007), area.Point(-1.776356839e-15, -29.37499972)))&#x0A;curve.append(area.Vertex(-1, area.Point(-4.626013478, -28.20000038), area.Point(-4.62601369, -25.02499979)))&#x0A;curve.append(area.Point(-25.02499972, -28.19999968))&#x0A;curve.append(area.Vertex(-1, area.Point(-28.19999968, -25.02499972), area.Point(-25.02499972, -25.02499972)))&#x0A;curve.append(area.Point(-28.20000038, -4.626013478))&#x0A;curve.append(area.Vertex(-1, area.Point(-27.20000007, -2.313006385), area.Point(-25.02499981, -4.626013672)))&#x0A;curve.append(area.Vertex(1, area.Point(-27.20000007, 2.313006385), area.Point(-29.37499975, 2.757716722e-08)))&#x0A;curve.append(area.Vertex(-1, area.Point(-28.20000038, 4.626013478), area.Point(-25.02499976, 4.626013658)))&#x0A;curve.append(area.Point(-28.19999968, 25.02499972))&#x0A;curve.append(area.Vertex(-1, area.Point(-25.02499972, 28.19999968), area.Point(-25.02499972, 25.02499972)))&#x0A;curve.append(area.Point(-4.626013478, 28.20000038))&#x0A;curve.append(area.Vertex(-1, area.Point(-2.313006385, 27.20000007), area.Point(-4.62601364, 25.02499978)))&#x0A;curve.append(area.Vertex(1, area.Point(2.313006385, 27.20000007), area.Point(3.552713679e-15, 29.37499978)))&#x0A;curve.append(area.Vertex(-1, area.Point(4.626013478, 28.20000038), area.Point(4.62601364, 25.02499978)))&#x0A;curve.append(area.Point(25.02499972, 28.19999968))&#x0A;curve.append(area.Vertex(-1, area.Point(28.19999968, 25.02499972), area.Point(25.02499972, 25.02499972)))&#x0A;curve.append(area.Point(28.20000038, 4.626013478))&#x0A;curve.append(area.Vertex(-1, area.Point(27.20000007, 2.313006385), area.Point(25.02499976, 4.626013658)))&#x0A;curve.append(area.Vertex(1, area.Point(27.20000007, -2.313006385), area.Point(29.37499975, 2.757716189e-08)))&#x0A;curve.append(area.Vertex(-1, area.Point(28.20000038, -4.626013478), area.Point(25.02499981, -4.626013672)))&#x0A;curve.append(area.Point(28.19999968, -25.02499972))&#x0A;curve.append(area.Vertex(-1, area.Point(25.02499972, -28.19999968), area.Point(25.02499972, -25.02499972)))&#x0A;curve.append(area.Point(4.626013478, -28.20000038))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, False)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;right&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;spindle(7000)&#x0A;feedrate_hv(200, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(0.25), float(0), float(0), float(-5.5), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;a = area.Area()&#x0A;entry_moves = []&#x0A;c = area.Curve()&#x0A;c.append(area.Vertex(0, area.Point(30.66502907, -31.56149905), area.Point(0, 0)))&#x0A;c.append(area.Vertex(1, area.Point(31.651938, -30.1520231), area.Point(30.15225105, -30.15220145)))&#x0A;c.append(area.Vertex(0, area.Point(31.651938, 25.45640981), area.Point(0, 0)))&#x0A;c.append(area.Vertex(1, area.Point(31.25001851, 26.47832053), area.Point(30.15231833, 25.45659967)))&#x0A;c.append(area.Vertex(1, area.Point(26.37112314, 31.34081102), area.Point(-32.88298038, -32.99212468)))&#x0A;c.append(area.Vertex(1, area.Point(25.45640981, 31.651938), area.Point(25.45651665, 30.15206003)))&#x0A;c.append(area.Vertex(0, area.Point(-30.1520231, 31.651938), area.Point(0, 0)))&#x0A;c.append(area.Vertex(1, area.Point(-31.651938, 30.1520231), area.Point(-30.15198712, 30.15198712)))&#x0A;c.append(area.Vertex(0, area.Point(-31.651938, -28.93777933), area.Point(0, 0)))&#x0A;c.append(area.Vertex(1, area.Point(-31.12860827, -30.07629196), area.Point(-30.15196602, -28.93783429)))&#x0A;c.append(area.Vertex(-1, area.Point(-29.98804504, -31.22293632), area.Point(-38.41804113, -38.46764537)))&#x0A;c.append(area.Vertex(1, area.Point(-28.93777933, -31.651938), area.Point(-28.93812223, -30.15266619)))&#x0A;c.append(area.Vertex(0, area.Point(30.1520231, -31.651938), area.Point(0, 0)))&#x0A;c.append(area.Vertex(1, area.Point(30.66502907, -31.56149905), area.Point(30.15225822, -30.15306445)))&#x0A;a.append(c)&#x0A;c = area.Curve()&#x0A;c.append(area.Vertex(0, area.Point(38.65193801, -30.15220147), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(33.05912531, -38.13936372), area.Point(30.15225105, -30.15220145)))&#x0A;c.append(area.Vertex(-1, area.Point(30.15225818, -38.65193801), area.Point(30.15225822, -30.15306445)))&#x0A;c.append(area.Vertex(0, area.Point(-28.9381222, -38.65193799), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(-34.89006447, -36.21995602), area.Point(-28.93812223, -30.15266619)))&#x0A;c.append(area.Vertex(-1, area.Point(-35.296925, -35.78536913), area.Point(-29.98804504, -31.22293632)))&#x0A;c.append(area.Vertex(1, area.Point(-35.71254334, -35.36663698), area.Point(-38.41804113, -38.46764537)))&#x0A;c.append(area.Vertex(-1, area.Point(-38.65193798, -28.93783428), area.Point(-30.15196602, -28.93783429)))&#x0A;c.append(area.Vertex(0, area.Point(-38.651938, 30.1520231), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(-38.651938, 30.15219103), area.Point(-31.651938, 30.1520231)))&#x0A;c.append(area.Vertex(-1, area.Point(-30.15219103, 38.651938), area.Point(-30.15198712, 30.15198712)))&#x0A;c.append(area.Vertex(-1, area.Point(-30.1520231, 38.651938), area.Point(-30.1520231, 31.651938)))&#x0A;c.append(area.Vertex(0, area.Point(25.45651665, 38.651938), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(30.63963399, 36.88876696), area.Point(25.45651665, 30.15206003)))&#x0A;c.append(area.Vertex(-1, area.Point(31.11345705, 36.48962341), area.Point(26.37112314, 31.34081102)))&#x0A;c.append(area.Vertex(-1, area.Point(36.3801241, 31.24088615), area.Point(-32.88298038, -32.99212468)))&#x0A;c.append(area.Vertex(-1, area.Point(38.65193802, 25.45659966), area.Point(30.15231833, 25.45659967)))&#x0A;c.append(area.Vertex(0, area.Point(38.651938, -30.15220148), area.Point(0, 0)))&#x0A;a.append(c)&#x0A;&#x0A;a.Reorder()&#x0A;entry_style = 0&#x0A;area_funcs.pocket(a, tool_diameter/2, 0.3, 3, depthparams, 1, True, False, 0,False, None,&apos;conventional&apos;)&#x0A;rapid(z = depthparams.clearance_height)&#x0A;spindle(7000)&#x0A;feedrate_hv(200, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(-5.5), float(0.25), float(0), float(0), float(-6.5), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;roll_radius = float(2)&#x0A;offset_extra = 0.3&#x0A;comment(&apos;outer&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-31.65202003, 30.15202027))&#x0A;curve.append(area.Point(-31.65202003, -28.93779772))&#x0A;curve.append(area.Vertex(1, area.Point(-31.12863868, -30.07631247), area.Point(-30.15202025, -28.93779774)))&#x0A;curve.append(area.Vertex(-1, area.Point(-30.07631247, -31.12863868), area.Point(-37.47665863, -37.47665863)))&#x0A;curve.append(area.Vertex(1, area.Point(-28.93779772, -31.65202003), area.Point(-28.93779774, -30.15202025)))&#x0A;curve.append(area.Point(30.15202027, -31.65202003))&#x0A;curve.append(area.Vertex(1, area.Point(31.65202003, -30.15202027), area.Point(30.15202027, -30.15202027)))&#x0A;curve.append(area.Point(31.65202074, 25.45646426))&#x0A;curve.append(area.Vertex(1, area.Point(31.25011609, 26.4783177), area.Point(30.1520207, 25.4564632)))&#x0A;curve.append(area.Vertex(1, area.Point(26.4783177, 31.25011609), area.Point(-37.47665891, -37.47665891)))&#x0A;curve.append(area.Vertex(1, area.Point(25.45646426, 31.65202074), area.Point(25.4564632, 30.1520207)))&#x0A;curve.append(area.Point(-30.15202027, 31.65202003))&#x0A;curve.append(area.Vertex(1, area.Point(-31.65202003, 30.15202027), area.Point(-30.15202027, 30.15202027)))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, True)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;kurve_funcs.clear_tags()&#x0A;kurve_funcs.add_tag(area.Point(-25, 25), 2, 0.7853981634, 1.5)&#x0A;kurve_funcs.add_tag(area.Point(25, -24), 2, 0.7853981634, 1.5)&#x0A;kurve_funcs.add_tag(area.Point(25, 24), 2, 0.7853981634, 1.5)&#x0A;kurve_funcs.add_tag(area.Point(-35, -15), 2, 0.7853981634, 1.5)&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;right&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;feedrate_hv(50, 50)&#x0A;flush_nc()&#x0A;offset_extra = 0.0&#x0A;depthparams.step_down = 7&#x0A;depthparams.z_finish_depth = 0.0&#x0A;comment(&apos;outer&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-31.65202003, 30.15202027))&#x0A;curve.append(area.Point(-31.65202003, -28.93779772))&#x0A;curve.append(area.Vertex(1, area.Point(-31.12863868, -30.07631247), area.Point(-30.15202025, -28.93779774)))&#x0A;curve.append(area.Vertex(-1, area.Point(-30.07631247, -31.12863868), area.Point(-37.47665863, -37.47665863)))&#x0A;curve.append(area.Vertex(1, area.Point(-28.93779772, -31.65202003), area.Point(-28.93779774, -30.15202025)))&#x0A;curve.append(area.Point(30.15202027, -31.65202003))&#x0A;curve.append(area.Vertex(1, area.Point(31.65202003, -30.15202027), area.Point(30.15202027, -30.15202027)))&#x0A;curve.append(area.Point(31.65202074, 25.45646426))&#x0A;curve.append(area.Vertex(1, area.Point(31.25011609, 26.4783177), area.Point(30.1520207, 25.4564632)))&#x0A;curve.append(area.Vertex(1, area.Point(26.4783177, 31.25011609), area.Point(-37.47665891, -37.47665891)))&#x0A;curve.append(area.Vertex(1, area.Point(25.45646426, 31.65202074), area.Point(25.4564632, 30.1520207)))&#x0A;curve.append(area.Point(-30.15202027, 31.65202003))&#x0A;curve.append(area.Vertex(1, area.Point(-31.65202003, 30.15202027), area.Point(-30.15202027, 30.15202027)))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, True)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;kurve_funcs.clear_tags()&#x0A;kurve_funcs.add_tag(area.Point(-25, 25), 2, 0.7853981634, 1.5)&#x0A;kurve_funcs.add_tag(area.Point(25, -24), 2, 0.7853981634, 1.5)&#x0A;kurve_funcs.add_tag(area.Point(25, 24), 2, 0.7853981634, 1.5)&#x0A;kurve_funcs.add_tag(area.Point(-35, -15), 2, 0.7853981634, 1.5)&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;right&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;spindle(7000)&#x0A;feedrate_hv(250, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(0.2), float(0), float(0), float(-6.5), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;roll_radius = float(2)&#x0A;feedrate_hv(50, 50)&#x0A;flush_nc()&#x0A;offset_extra = 0.0&#x0A;depthparams.step_down = 7&#x0A;depthparams.z_finish_depth = 0.0&#x0A;comment(&apos;outer&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-31.65202003, 30.15202027))&#x0A;curve.append(area.Vertex(-1, area.Point(-30.15202027, 31.65202003), area.Point(-30.15202027, 30.15202027)))&#x0A;curve.append(area.Point(25.45646426, 31.65202074))&#x0A;curve.append(area.Vertex(-1, area.Point(26.4783177, 31.25011609), area.Point(25.4564632, 30.1520207)))&#x0A;curve.append(area.Vertex(-1, area.Point(31.25011609, 26.4783177), area.Point(-37.47665891, -37.47665891)))&#x0A;curve.append(area.Vertex(-1, area.Point(31.65202074, 25.45646426), area.Point(30.1520207, 25.4564632)))&#x0A;curve.append(area.Point(31.65202003, -30.15202027))&#x0A;curve.append(area.Vertex(-1, area.Point(30.15202027, -31.65202003), area.Point(30.15202027, -30.15202027)))&#x0A;curve.append(area.Point(-28.93779772, -31.65202003))&#x0A;curve.append(area.Vertex(-1, area.Point(-30.07631247, -31.12863868), area.Point(-28.93779774, -30.15202025)))&#x0A;curve.append(area.Vertex(1, area.Point(-31.12863868, -30.07631247), area.Point(-37.47665863, -37.47665863)))&#x0A;curve.append(area.Vertex(-1, area.Point(-31.65202003, -28.93779772), area.Point(-30.15202025, -28.93779774)))&#x0A;curve.append(area.Point(-31.65202003, 30.15202027))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, False)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;left&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;program_end()&#x0A;" units="1" ProgramPathControlMode="3" ProgramMotionBlendingTolerance="0.0001" ProgramNaiveCamTolerance="0.0001" title_from_id="1" id="1">
+    <Program machine="GRBL" output_file="/tmp/heekscnc-acX839.ngc" output_file_name_follows_data_file_name="1" program="# coding=UTF8&#x0A;# No troubled Microsoft Windows detected&#x0A;import sys&#x0A;sys.path.insert(0,&apos;/usr/lib/heekscnc/&apos;)&#x0A;import math&#x0A;import area&#x0A;area.set_units(1)&#x0A;import kurve_funcs&#x0A;import area_funcs&#x0A;from depth_params import depth_params as depth_params&#x0A;&#x0A;from nc.nc import *&#x0A;from nc.grbl import *&#x0A;&#x0A;output(&apos;/home/grey/git/b40/heeks/sampleTrayA.ngc&apos;)&#x0A;program_begin(1, &apos;Program 1&apos;)&#x0A;absolute()&#x0A;metric()&#x0A;set_plane(0)&#x0A;&#x0A;#(6.35 mm End Mill)&#x0A;tool_defn( 4, &apos;6.35 mm End Mill&apos;, {&apos;corner radius&apos;:0, &apos;cutting edge angle&apos;:0, &apos;cutting edge height&apos;:50.8, &apos;diameter&apos;:6.35, &apos;flat radius&apos;:0, &apos;material&apos;:1, &apos;tool length offset&apos;:127, &apos;type&apos;:2, &apos;name&apos;:&apos;6.35 mm End Mill&apos;})&#x0A;tool_change( id=4)&#x0A;spindle(7000)&#x0A;feedrate_hv(50, 20)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(0.1), float(0), float(0), float(-5.7), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;drill(x=-25.8963716, y=-25.8963716, dwell=5, depthparams = depthparams, retract_mode=1, spindle_mode=0, internal_coolant_on=0, rapid_to_clearance=0)&#x0A;drill(x=25.89637165, y=25.89637165, dwell=5, depthparams = depthparams, retract_mode=1, spindle_mode=0, internal_coolant_on=0, rapid_to_clearance=0)&#x0A;drill(x=-25.8963716, y=25.89637165, dwell=5, depthparams = depthparams, retract_mode=1, spindle_mode=0, internal_coolant_on=0, rapid_to_clearance=0)&#x0A;drill(x=25.89637165, y=-25.8963716, dwell=5, depthparams = depthparams, retract_mode=1, spindle_mode=0, internal_coolant_on=0, rapid_to_clearance=0)&#x0A;end_canned_cycle()&#x0A;spindle(7000)&#x0A;feedrate_hv(200, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(0.25), float(0), float(0), float(-0.2), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;roll_radius = float(2)&#x0A;offset_extra = 0&#x0A;comment(&apos;outer&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-31.65202, 30.15202027))&#x0A;curve.append(area.Point(-31.65202, -28.9377977))&#x0A;curve.append(area.Vertex(1, area.Point(-31.1286387, -30.0763125), area.Point(-30.1520202, -28.9377977)))&#x0A;curve.append(area.Vertex(-1, area.Point(-30.0763125, -31.1286387), area.Point(-37.4766586, -37.4766586)))&#x0A;curve.append(area.Vertex(1, area.Point(-28.9377977, -31.65202), area.Point(-28.9377977, -30.1520202)))&#x0A;curve.append(area.Point(30.15202027, -31.65202))&#x0A;curve.append(area.Vertex(1, area.Point(31.65202003, -30.1520203), area.Point(30.15202027, -30.1520203)))&#x0A;curve.append(area.Point(31.65202074, 25.45646426))&#x0A;curve.append(area.Vertex(1, area.Point(31.25011609, 26.4783177), area.Point(30.1520207, 25.4564632)))&#x0A;curve.append(area.Vertex(1, area.Point(26.4783177, 31.25011609), area.Point(-37.4766589, -37.4766589)))&#x0A;curve.append(area.Vertex(1, area.Point(25.45646426, 31.65202074), area.Point(25.4564632, 30.1520207)))&#x0A;curve.append(area.Point(-30.1520203, 31.65202003))&#x0A;curve.append(area.Vertex(1, area.Point(-31.65202, 30.15202027), area.Point(-30.1520203, 30.15202027)))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, False)&#x0A;roll_on = None&#x0A;roll_off = None&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;on&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;spindle(7000)&#x0A;feedrate_hv(200, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(0.25), float(0), float(0), float(-5.7), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;a = area.Area()&#x0A;entry_moves = []&#x0A;c = area.Curve()&#x0A;c.append(area.Vertex(0, area.Point(-19.2000004, 19.20000038), area.Point(0, 0)))&#x0A;c.append(area.Vertex(0, area.Point(19.20000038, 19.20000038), area.Point(0, 0)))&#x0A;c.append(area.Vertex(0, area.Point(19.20000042, -19.2000004), area.Point(0, 0)))&#x0A;c.append(area.Vertex(0, area.Point(-19.2000004, -19.2000004), area.Point(0, 0)))&#x0A;c.append(area.Vertex(0, area.Point(-19.2000004, 19.20000038), area.Point(0, 0)))&#x0A;a.append(c)&#x0A;c = area.Curve()&#x0A;c.append(area.Vertex(0, area.Point(-25.0250004, 28.20000038), area.Point(0, 0)))&#x0A;c.append(area.Vertex(0, area.Point(25.02500038, 28.20000038), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(28.20000038, 25.02500038), area.Point(25.02500038, 25.02500038)))&#x0A;c.append(area.Vertex(0, area.Point(28.2000004, -25.0250004), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(25.0250004, -28.2000004), area.Point(25.02500035, -25.0250004)))&#x0A;c.append(area.Vertex(0, area.Point(-25.0250004, -28.2000004), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(-28.2000004, -25.0250004), area.Point(-25.0250004, -25.0250004)))&#x0A;c.append(area.Vertex(0, area.Point(-28.2000004, 25.02500038), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(-25.0250004, 28.20000038), area.Point(-25.0250004, 25.02500038)))&#x0A;a.append(c)&#x0A;&#x0A;a.Reorder()&#x0A;entry_style = 0&#x0A;area_funcs.pocket(a, tool_diameter/2, 0.3, 3, depthparams, 1, True, False, 0,False, None,&apos;conventional&apos;)&#x0A;rapid(z = depthparams.clearance_height)&#x0A;spindle(7000)&#x0A;feedrate_hv(200, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(7), float(0), float(0), float(-5.7), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;roll_radius = float(2)&#x0A;offset_extra = 0.3&#x0A;comment(&apos;inner&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-25.0250004, 28.20000038))&#x0A;curve.append(area.Point(25.02500038, 28.20000038))&#x0A;curve.append(area.Vertex(-1, area.Point(28.20000038, 25.02500038), area.Point(25.02500038, 25.02500038)))&#x0A;curve.append(area.Point(28.2000004, -25.0250004))&#x0A;curve.append(area.Vertex(-1, area.Point(25.0250004, -28.2000004), area.Point(25.02500035, -25.0250004)))&#x0A;curve.append(area.Point(-25.0250004, -28.2000004))&#x0A;curve.append(area.Vertex(-1, area.Point(-28.2000004, -25.0250004), area.Point(-25.0250004, -25.0250004)))&#x0A;curve.append(area.Point(-28.2000004, 25.02500038))&#x0A;curve.append(area.Vertex(-1, area.Point(-25.0250004, 28.20000038), area.Point(-25.0250004, 25.02500038)))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, False)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;right&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;feedrate_hv(50, 50)&#x0A;flush_nc()&#x0A;offset_extra = 0.0&#x0A;depthparams.step_down = 7&#x0A;depthparams.z_finish_depth = 0.0&#x0A;comment(&apos;inner&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-25.0250004, 28.20000038))&#x0A;curve.append(area.Point(25.02500038, 28.20000038))&#x0A;curve.append(area.Vertex(-1, area.Point(28.20000038, 25.02500038), area.Point(25.02500038, 25.02500038)))&#x0A;curve.append(area.Point(28.2000004, -25.0250004))&#x0A;curve.append(area.Vertex(-1, area.Point(25.0250004, -28.2000004), area.Point(25.02500035, -25.0250004)))&#x0A;curve.append(area.Point(-25.0250004, -28.2000004))&#x0A;curve.append(area.Vertex(-1, area.Point(-28.2000004, -25.0250004), area.Point(-25.0250004, -25.0250004)))&#x0A;curve.append(area.Point(-28.2000004, 25.02500038))&#x0A;curve.append(area.Vertex(-1, area.Point(-25.0250004, 28.20000038), area.Point(-25.0250004, 25.02500038)))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, False)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;right&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;spindle(7000)&#x0A;feedrate_hv(250, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(0.2), float(0), float(0), float(-5.7), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;roll_radius = float(2)&#x0A;feedrate_hv(50, 50)&#x0A;flush_nc()&#x0A;offset_extra = 0.0&#x0A;depthparams.step_down = 7&#x0A;depthparams.z_finish_depth = 0.0&#x0A;comment(&apos;inner&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-25.0250004, 28.20000038))&#x0A;curve.append(area.Vertex(1, area.Point(-28.2000004, 25.02500038), area.Point(-25.0250004, 25.02500038)))&#x0A;curve.append(area.Point(-28.2000004, -25.0250004))&#x0A;curve.append(area.Vertex(1, area.Point(-25.0250004, -28.2000004), area.Point(-25.0250004, -25.0250004)))&#x0A;curve.append(area.Point(25.0250004, -28.2000004))&#x0A;curve.append(area.Vertex(1, area.Point(28.2000004, -25.0250004), area.Point(25.02500035, -25.0250004)))&#x0A;curve.append(area.Point(28.20000038, 25.02500038))&#x0A;curve.append(area.Vertex(1, area.Point(25.02500038, 28.20000038), area.Point(25.02500038, 25.02500038)))&#x0A;curve.append(area.Point(-25.0250004, 28.20000038))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, True)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;left&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;spindle(7000)&#x0A;feedrate_hv(200, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(-5.7), float(0.25), float(0), float(0), float(-6.5), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;roll_radius = float(2)&#x0A;offset_extra = 0.2&#x0A;comment(&apos;ledges&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(4.626013478, -28.2000004))&#x0A;curve.append(area.Vertex(-1, area.Point(2.313006385, -27.2000001), area.Point(4.62601369, -25.0249998)))&#x0A;curve.append(area.Vertex(1, area.Point(-2.31300639, -27.2000001), area.Point(-1.77635684e-15, -29.3749997)))&#x0A;curve.append(area.Vertex(-1, area.Point(-4.62601348, -28.2000004), area.Point(-4.62601369, -25.0249998)))&#x0A;curve.append(area.Point(-25.0249997, -28.1999997))&#x0A;curve.append(area.Vertex(-1, area.Point(-28.1999997, -25.0249997), area.Point(-25.0249997, -25.0249997)))&#x0A;curve.append(area.Point(-28.2000004, -4.62601348))&#x0A;curve.append(area.Vertex(-1, area.Point(-27.2000001, -2.31300639), area.Point(-25.0249998, -4.62601367)))&#x0A;curve.append(area.Vertex(1, area.Point(-27.2000001, 2.313006385), area.Point(-29.3749997, 2.75771672e-08)))&#x0A;curve.append(area.Vertex(-1, area.Point(-28.2000004, 4.626013478), area.Point(-25.0249998, 4.626013658)))&#x0A;curve.append(area.Point(-28.1999997, 25.02499972))&#x0A;curve.append(area.Vertex(-1, area.Point(-25.0249997, 28.19999968), area.Point(-25.0249997, 25.02499972)))&#x0A;curve.append(area.Point(-4.62601348, 28.20000038))&#x0A;curve.append(area.Vertex(-1, area.Point(-2.31300639, 27.20000007), area.Point(-4.62601364, 25.02499978)))&#x0A;curve.append(area.Vertex(1, area.Point(2.313006385, 27.20000007), area.Point(3.55271368e-15, 29.37499978)))&#x0A;curve.append(area.Vertex(-1, area.Point(4.626013478, 28.20000038), area.Point(4.62601364, 25.02499978)))&#x0A;curve.append(area.Point(25.02499972, 28.19999968))&#x0A;curve.append(area.Vertex(-1, area.Point(28.19999968, 25.02499972), area.Point(25.02499972, 25.02499972)))&#x0A;curve.append(area.Point(28.20000038, 4.626013478))&#x0A;curve.append(area.Vertex(-1, area.Point(27.20000007, 2.313006385), area.Point(25.02499976, 4.626013658)))&#x0A;curve.append(area.Vertex(1, area.Point(27.20000007, -2.31300639), area.Point(29.37499975, 2.75771619e-08)))&#x0A;curve.append(area.Vertex(-1, area.Point(28.20000038, -4.62601348), area.Point(25.02499981, -4.62601367)))&#x0A;curve.append(area.Point(28.19999968, -25.0249997))&#x0A;curve.append(area.Vertex(-1, area.Point(25.02499972, -28.1999997), area.Point(25.02499972, -25.0249997)))&#x0A;curve.append(area.Point(4.626013478, -28.2000004))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, False)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;right&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;spindle(7000)&#x0A;feedrate_hv(200, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(0.25), float(0), float(0), float(-5.5), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;a = area.Area()&#x0A;entry_moves = []&#x0A;c = area.Curve()&#x0A;c.append(area.Vertex(0, area.Point(30.66502907, -31.561499), area.Point(0, 0)))&#x0A;c.append(area.Vertex(1, area.Point(31.651938, -30.1520231), area.Point(30.15225105, -30.1522015)))&#x0A;c.append(area.Vertex(0, area.Point(31.651938, 25.45640981), area.Point(0, 0)))&#x0A;c.append(area.Vertex(1, area.Point(31.25001851, 26.47832053), area.Point(30.15231833, 25.45659967)))&#x0A;c.append(area.Vertex(1, area.Point(26.37112314, 31.34081102), area.Point(-32.8829804, -32.9921247)))&#x0A;c.append(area.Vertex(1, area.Point(25.45640981, 31.651938), area.Point(25.45651665, 30.15206003)))&#x0A;c.append(area.Vertex(0, area.Point(-30.1520231, 31.651938), area.Point(0, 0)))&#x0A;c.append(area.Vertex(1, area.Point(-31.651938, 30.1520231), area.Point(-30.1519871, 30.15198712)))&#x0A;c.append(area.Vertex(0, area.Point(-31.651938, -28.9377793), area.Point(0, 0)))&#x0A;c.append(area.Vertex(1, area.Point(-31.1286083, -30.076292), area.Point(-30.151966, -28.9378343)))&#x0A;c.append(area.Vertex(-1, area.Point(-29.988045, -31.2229363), area.Point(-38.4180411, -38.4676454)))&#x0A;c.append(area.Vertex(1, area.Point(-28.9377793, -31.651938), area.Point(-28.9381222, -30.1526662)))&#x0A;c.append(area.Vertex(0, area.Point(30.1520231, -31.651938), area.Point(0, 0)))&#x0A;c.append(area.Vertex(1, area.Point(30.66502907, -31.561499), area.Point(30.15225822, -30.1530645)))&#x0A;a.append(c)&#x0A;c = area.Curve()&#x0A;c.append(area.Vertex(0, area.Point(38.65193801, -30.1522015), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(33.05912531, -38.1393637), area.Point(30.15225105, -30.1522015)))&#x0A;c.append(area.Vertex(-1, area.Point(30.15225818, -38.651938), area.Point(30.15225822, -30.1530645)))&#x0A;c.append(area.Vertex(0, area.Point(-28.9381222, -38.651938), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(-34.8900645, -36.219956), area.Point(-28.9381222, -30.1526662)))&#x0A;c.append(area.Vertex(-1, area.Point(-35.296925, -35.7853691), area.Point(-29.988045, -31.2229363)))&#x0A;c.append(area.Vertex(1, area.Point(-35.7125433, -35.366637), area.Point(-38.4180411, -38.4676454)))&#x0A;c.append(area.Vertex(-1, area.Point(-38.651938, -28.9378343), area.Point(-30.151966, -28.9378343)))&#x0A;c.append(area.Vertex(0, area.Point(-38.651938, 30.1520231), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(-38.651938, 30.15219103), area.Point(-31.651938, 30.1520231)))&#x0A;c.append(area.Vertex(-1, area.Point(-30.152191, 38.651938), area.Point(-30.1519871, 30.15198712)))&#x0A;c.append(area.Vertex(-1, area.Point(-30.1520231, 38.651938), area.Point(-30.1520231, 31.651938)))&#x0A;c.append(area.Vertex(0, area.Point(25.45651665, 38.651938), area.Point(0, 0)))&#x0A;c.append(area.Vertex(-1, area.Point(30.63963399, 36.88876696), area.Point(25.45651665, 30.15206003)))&#x0A;c.append(area.Vertex(-1, area.Point(31.11345705, 36.48962341), area.Point(26.37112314, 31.34081102)))&#x0A;c.append(area.Vertex(-1, area.Point(36.3801241, 31.24088615), area.Point(-32.8829804, -32.9921247)))&#x0A;c.append(area.Vertex(-1, area.Point(38.65193802, 25.45659966), area.Point(30.15231833, 25.45659967)))&#x0A;c.append(area.Vertex(0, area.Point(38.651938, -30.1522015), area.Point(0, 0)))&#x0A;a.append(c)&#x0A;&#x0A;a.Reorder()&#x0A;entry_style = 0&#x0A;area_funcs.pocket(a, tool_diameter/2, 0.3, 3, depthparams, 1, True, False, 0,False, None,&apos;conventional&apos;)&#x0A;rapid(z = depthparams.clearance_height)&#x0A;spindle(7000)&#x0A;feedrate_hv(200, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(-5.5), float(0.25), float(0), float(0), float(-6.5), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;roll_radius = float(2)&#x0A;offset_extra = 0.3&#x0A;comment(&apos;outer&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-31.65202, 30.15202027))&#x0A;curve.append(area.Point(-31.65202, -28.9377977))&#x0A;curve.append(area.Vertex(1, area.Point(-31.1286387, -30.0763125), area.Point(-30.1520202, -28.9377977)))&#x0A;curve.append(area.Vertex(-1, area.Point(-30.0763125, -31.1286387), area.Point(-37.4766586, -37.4766586)))&#x0A;curve.append(area.Vertex(1, area.Point(-28.9377977, -31.65202), area.Point(-28.9377977, -30.1520202)))&#x0A;curve.append(area.Point(30.15202027, -31.65202))&#x0A;curve.append(area.Vertex(1, area.Point(31.65202003, -30.1520203), area.Point(30.15202027, -30.1520203)))&#x0A;curve.append(area.Point(31.65202074, 25.45646426))&#x0A;curve.append(area.Vertex(1, area.Point(31.25011609, 26.4783177), area.Point(30.1520207, 25.4564632)))&#x0A;curve.append(area.Vertex(1, area.Point(26.4783177, 31.25011609), area.Point(-37.4766589, -37.4766589)))&#x0A;curve.append(area.Vertex(1, area.Point(25.45646426, 31.65202074), area.Point(25.4564632, 30.1520207)))&#x0A;curve.append(area.Point(-30.1520203, 31.65202003))&#x0A;curve.append(area.Vertex(1, area.Point(-31.65202, 30.15202027), area.Point(-30.1520203, 30.15202027)))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, True)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;kurve_funcs.clear_tags()&#x0A;kurve_funcs.add_tag(area.Point(-1, 35), 2, 0.7853981634, 1.5)&#x0A;kurve_funcs.add_tag(area.Point(-35, 1), 2, 0.7853981634, 1.5)&#x0A;kurve_funcs.add_tag(area.Point(20, -35), 2, 0.7853981634, 1.5)&#x0A;kurve_funcs.add_tag(area.Point(35, -1), 2, 0.7853981634, 1.5)&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;right&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;feedrate_hv(50, 50)&#x0A;flush_nc()&#x0A;offset_extra = 0.0&#x0A;depthparams.step_down = 7&#x0A;depthparams.z_finish_depth = 0.0&#x0A;comment(&apos;outer&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-31.65202, 30.15202027))&#x0A;curve.append(area.Point(-31.65202, -28.9377977))&#x0A;curve.append(area.Vertex(1, area.Point(-31.1286387, -30.0763125), area.Point(-30.1520202, -28.9377977)))&#x0A;curve.append(area.Vertex(-1, area.Point(-30.0763125, -31.1286387), area.Point(-37.4766586, -37.4766586)))&#x0A;curve.append(area.Vertex(1, area.Point(-28.9377977, -31.65202), area.Point(-28.9377977, -30.1520202)))&#x0A;curve.append(area.Point(30.15202027, -31.65202))&#x0A;curve.append(area.Vertex(1, area.Point(31.65202003, -30.1520203), area.Point(30.15202027, -30.1520203)))&#x0A;curve.append(area.Point(31.65202074, 25.45646426))&#x0A;curve.append(area.Vertex(1, area.Point(31.25011609, 26.4783177), area.Point(30.1520207, 25.4564632)))&#x0A;curve.append(area.Vertex(1, area.Point(26.4783177, 31.25011609), area.Point(-37.4766589, -37.4766589)))&#x0A;curve.append(area.Vertex(1, area.Point(25.45646426, 31.65202074), area.Point(25.4564632, 30.1520207)))&#x0A;curve.append(area.Point(-30.1520203, 31.65202003))&#x0A;curve.append(area.Vertex(1, area.Point(-31.65202, 30.15202027), area.Point(-30.1520203, 30.15202027)))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, True)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;kurve_funcs.clear_tags()&#x0A;kurve_funcs.add_tag(area.Point(-1, 35), 2, 0.7853981634, 1.5)&#x0A;kurve_funcs.add_tag(area.Point(-35, 1), 2, 0.7853981634, 1.5)&#x0A;kurve_funcs.add_tag(area.Point(20, -35), 2, 0.7853981634, 1.5)&#x0A;kurve_funcs.add_tag(area.Point(35, -1), 2, 0.7853981634, 1.5)&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;right&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;spindle(7000)&#x0A;feedrate_hv(250, 50)&#x0A;flush_nc()&#x0A;depthparams = depth_params(float(5), float(2), float(0), float(0.2), float(0), float(0), float(-6.5), None)&#x0A;tool_diameter = float(6.35)&#x0A;cutting_edge_angle = float(0)&#x0A;roll_radius = float(2)&#x0A;feedrate_hv(50, 50)&#x0A;flush_nc()&#x0A;offset_extra = 0.0&#x0A;depthparams.step_down = 7&#x0A;depthparams.z_finish_depth = 0.0&#x0A;comment(&apos;outer&apos;)&#x0A;curve = area.Curve()&#x0A;curve.append(area.Point(-31.65202, 30.15202027))&#x0A;curve.append(area.Vertex(-1, area.Point(-30.1520203, 31.65202003), area.Point(-30.1520203, 30.15202027)))&#x0A;curve.append(area.Point(25.45646426, 31.65202074))&#x0A;curve.append(area.Vertex(-1, area.Point(26.4783177, 31.25011609), area.Point(25.4564632, 30.1520207)))&#x0A;curve.append(area.Vertex(-1, area.Point(31.25011609, 26.4783177), area.Point(-37.4766589, -37.4766589)))&#x0A;curve.append(area.Vertex(-1, area.Point(31.65202074, 25.45646426), area.Point(30.1520207, 25.4564632)))&#x0A;curve.append(area.Point(31.65202003, -30.1520203))&#x0A;curve.append(area.Vertex(-1, area.Point(30.15202027, -31.65202), area.Point(30.15202027, -30.1520203)))&#x0A;curve.append(area.Point(-28.9377977, -31.65202))&#x0A;curve.append(area.Vertex(-1, area.Point(-30.0763125, -31.1286387), area.Point(-28.9377977, -30.1520202)))&#x0A;curve.append(area.Vertex(1, area.Point(-31.1286387, -30.0763125), area.Point(-37.4766586, -37.4766586)))&#x0A;curve.append(area.Vertex(-1, area.Point(-31.65202, -28.9377977), area.Point(-30.1520202, -28.9377977)))&#x0A;curve.append(area.Point(-31.65202, 30.15202027))&#x0A;&#x0A;kurve_funcs.set_good_start_point(curve, False)&#x0A;roll_on = &apos;auto&apos;&#x0A;roll_off = &apos;auto&apos;&#x0A;extend_at_start= 0&#x0A;extend_at_end= 0&#x0A;lead_in_line_len= 0&#x0A;lead_out_line_len= 0&#x0A;kurve_funcs.profile(curve, &apos;left&apos;, tool_diameter/2, offset_extra, roll_radius, roll_on, roll_off, depthparams, extend_at_start,extend_at_end,lead_in_line_len,lead_out_line_len )&#x0A;absolute()&#x0A;program_end()&#x0A;" units="1" ProgramPathControlMode="3" ProgramMotionBlendingTolerance="0.0001" ProgramNaiveCamTolerance="0.0001" title_from_id="1" id="1">
         <Tools>
             <Tool title="6.35 mm End Mill" tool_number="4" id="11">
                 <params diameter="6.35" tool_length_offset="127" automatically_generate_title="1" material="1" type="end_mill" corner_radius="0" flat_radius="0" cutting_edge_angle="0" cutting_edge_height="50.8" />
@@ -68,10 +68,10 @@
                 <depthop clear="5" down="0.25" userdepths="" startdepth="-5.5" depth="-6.5" r="2" />
                 <speedop hfeed="200" vfeed="50" spin="7000" />
                 <Tags>
-                    <Tag x="-25" y="25" width="2" angle="45" height="1.5" />
-                    <Tag x="25" y="-24" width="2" angle="45" height="1.5" />
-                    <Tag x="25" y="24" width="2" angle="45" height="1.5" />
-                    <Tag x="-35" y="-15" width="2" angle="45" height="1.5" />
+                    <Tag x="-1" y="35" width="2" angle="45" height="1.5" />
+                    <Tag x="-35" y="1" width="2" angle="45" height="1.5" />
+                    <Tag x="20" y="-35" width="2" angle="45" height="1.5" />
+                    <Tag x="35" y="-1" width="2" angle="45" height="1.5" />
                 </Tags>
             </Profile>
             <Profile sketch="2" active="1" tool_number="4" pattern="0" surface="0" title_from_id="0" title="outSpring" id="2">
@@ -83,7 +83,7 @@
         </Operations>
         <nccode edited="0" id="1">
             <ncblock id="0">
-                <text col="comment">(Created with GRBL post processor 2017/05/03 10:11)</text>
+                <text col="comment">(Created with GRBL post processor 2017/05/03 13:45)</text>
             </ncblock>
             <ncblock id="0">
                 <text col="comment">(tool change to 6.35 mm End Mill)</text>
@@ -10006,21 +10006,21 @@
                 <text col="comment">(ledges)</text>
             </ncblock>
             <ncblock id="0">
-                <text col="axis">X-14.825</text>
+                <text col="axis">X-22.825</text>
                 <text> </text>
-                <text col="axis">Y-22.825</text>
+                <text col="axis">Y14.825</text>
                 <text> </text>
                 <text col="axis">S7000</text>
                 <text> </text>
                 <text col="misc">M03</text>
                 <path col="rapid">
-                    <line tool_number="0" x="-14.825" y="-22.825" z="5" />
+                    <line tool_number="0" x="-22.825" y="14.825" z="5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">Z-3.7</text>
                 <path col="rapid">
-                    <line tool_number="0" x="-14.825" y="-22.825" z="-3.7" />
+                    <line tool_number="0" x="-22.825" y="14.825" z="-3.7" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -10028,55 +10028,23 @@
                 <text> </text>
                 <text col="axis">Z-5.9</text>
                 <path col="feed">
-                    <line tool_number="0" x="-14.825" y="-22.825" z="-5.9" />
+                    <line tool_number="0" x="-22.825" y="14.825" z="-5.9" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="feed">G02</text>
                 <text> </text>
-                <text col="axis">X-14.825</text>
+                <text col="axis">X-24.825</text>
                 <text> </text>
-                <text col="axis">Y-24.825</text>
+                <text col="axis">Y14.825</text>
                 <text> </text>
-                <text col="axis">I0</text>
+                <text col="axis">I-1</text>
                 <text> </text>
-                <text col="axis">J-1</text>
+                <text col="axis">J0</text>
                 <text> </text>
                 <text col="axis">F200</text>
                 <path col="feed">
-                    <arc i="0" j="-1" k="0" d="-1" tool_number="0" x="-14.825" y="-24.825" z="-5.9" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G01</text>
-                <text> </text>
-                <text col="axis">X-24.824</text>
-                <text> </text>
-                <text col="axis">Y-24.824</text>
-                <path col="feed">
-                    <line tool_number="0" x="-24.824" y="-24.824" z="-5.9" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="axis">X-24.825</text>
-                <text> </text>
-                <text col="axis">Y-4.711</text>
-                <path col="feed">
-                    <line tool_number="0" x="-24.825" y="-4.711" z="-5.9" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G03</text>
-                <text> </text>
-                <text col="axis">X-24.825</text>
-                <text> </text>
-                <text col="axis">Y4.711</text>
-                <text> </text>
-                <text col="axis">I-4.549</text>
-                <text> </text>
-                <text col="axis">J4.711</text>
-                <path col="feed">
-                    <arc i="-4.549" j="4.711" k="0" d="1" tool_number="0" x="-24.825" y="4.711" z="-5.9" />
+                    <arc i="-1" j="0" k="0" d="-1" tool_number="0" x="-24.825" y="14.825" z="-5.9" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -10178,61 +10146,11 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
-                <text col="axis">X-14.825</text>
-                <text> </text>
-                <text col="axis">Y-24.825</text>
-                <path col="feed">
-                    <line tool_number="0" x="-14.825" y="-24.825" z="-5.9" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G02</text>
-                <text> </text>
-                <text col="axis">X-14.825</text>
-                <text> </text>
-                <text col="axis">Y-22.825</text>
-                <text> </text>
-                <text col="axis">I0</text>
-                <text> </text>
-                <text col="axis">J1</text>
-                <path col="feed">
-                    <arc i="0" j="1" k="0" d="-1" tool_number="0" x="-14.825" y="-22.825" z="-5.9" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G01</text>
-                <text> </text>
-                <text col="axis">Z-6.1</text>
-                <text> </text>
-                <text col="axis">F50</text>
-                <path col="feed">
-                    <line tool_number="0" x="-14.825" y="-22.825" z="-6.1" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G02</text>
-                <text> </text>
-                <text col="axis">X-14.825</text>
-                <text> </text>
-                <text col="axis">Y-24.825</text>
-                <text> </text>
-                <text col="axis">I0</text>
-                <text> </text>
-                <text col="axis">J-1</text>
-                <text> </text>
-                <text col="axis">F200</text>
-                <path col="feed">
-                    <arc i="0" j="-1" k="0" d="-1" tool_number="0" x="-14.825" y="-24.825" z="-6.1" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G01</text>
-                <text> </text>
                 <text col="axis">X-24.824</text>
                 <text> </text>
                 <text col="axis">Y-24.824</text>
                 <path col="feed">
-                    <line tool_number="0" x="-24.824" y="-24.824" z="-6.1" />
+                    <line tool_number="0" x="-24.824" y="-24.824" z="-5.9" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -10240,7 +10158,7 @@
                 <text> </text>
                 <text col="axis">Y-4.711</text>
                 <path col="feed">
-                    <line tool_number="0" x="-24.825" y="-4.711" z="-6.1" />
+                    <line tool_number="0" x="-24.825" y="-4.711" z="-5.9" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -10254,7 +10172,57 @@
                 <text> </text>
                 <text col="axis">J4.711</text>
                 <path col="feed">
-                    <arc i="-4.549" j="4.711" k="0" d="1" tool_number="0" x="-24.825" y="4.711" z="-6.1" />
+                    <arc i="-4.549" j="4.711" k="0" d="1" tool_number="0" x="-24.825" y="4.711" z="-5.9" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G01</text>
+                <text> </text>
+                <text col="axis">X-24.825</text>
+                <text> </text>
+                <text col="axis">Y14.825</text>
+                <path col="feed">
+                    <line tool_number="0" x="-24.825" y="14.825" z="-5.9" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G02</text>
+                <text> </text>
+                <text col="axis">X-22.825</text>
+                <text> </text>
+                <text col="axis">Y14.825</text>
+                <text> </text>
+                <text col="axis">I1</text>
+                <text> </text>
+                <text col="axis">J0</text>
+                <path col="feed">
+                    <arc i="1" j="0" k="0" d="-1" tool_number="0" x="-22.825" y="14.825" z="-5.9" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G01</text>
+                <text> </text>
+                <text col="axis">Z-6.1</text>
+                <text> </text>
+                <text col="axis">F50</text>
+                <path col="feed">
+                    <line tool_number="0" x="-22.825" y="14.825" z="-6.1" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G02</text>
+                <text> </text>
+                <text col="axis">X-24.825</text>
+                <text> </text>
+                <text col="axis">Y14.825</text>
+                <text> </text>
+                <text col="axis">I-1</text>
+                <text> </text>
+                <text col="axis">J0</text>
+                <text> </text>
+                <text col="axis">F200</text>
+                <path col="feed">
+                    <arc i="-1" j="0" k="0" d="-1" tool_number="0" x="-24.825" y="14.825" z="-6.1" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -10356,61 +10324,11 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
-                <text col="axis">X-14.825</text>
-                <text> </text>
-                <text col="axis">Y-24.825</text>
-                <path col="feed">
-                    <line tool_number="0" x="-14.825" y="-24.825" z="-6.1" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G02</text>
-                <text> </text>
-                <text col="axis">X-14.825</text>
-                <text> </text>
-                <text col="axis">Y-22.825</text>
-                <text> </text>
-                <text col="axis">I0</text>
-                <text> </text>
-                <text col="axis">J1</text>
-                <path col="feed">
-                    <arc i="0" j="1" k="0" d="-1" tool_number="0" x="-14.825" y="-22.825" z="-6.1" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G01</text>
-                <text> </text>
-                <text col="axis">Z-6.3</text>
-                <text> </text>
-                <text col="axis">F50</text>
-                <path col="feed">
-                    <line tool_number="0" x="-14.825" y="-22.825" z="-6.3" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G02</text>
-                <text> </text>
-                <text col="axis">X-14.825</text>
-                <text> </text>
-                <text col="axis">Y-24.825</text>
-                <text> </text>
-                <text col="axis">I0</text>
-                <text> </text>
-                <text col="axis">J-1</text>
-                <text> </text>
-                <text col="axis">F200</text>
-                <path col="feed">
-                    <arc i="0" j="-1" k="0" d="-1" tool_number="0" x="-14.825" y="-24.825" z="-6.3" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G01</text>
-                <text> </text>
                 <text col="axis">X-24.824</text>
                 <text> </text>
                 <text col="axis">Y-24.824</text>
                 <path col="feed">
-                    <line tool_number="0" x="-24.824" y="-24.824" z="-6.3" />
+                    <line tool_number="0" x="-24.824" y="-24.824" z="-6.1" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -10418,7 +10336,7 @@
                 <text> </text>
                 <text col="axis">Y-4.711</text>
                 <path col="feed">
-                    <line tool_number="0" x="-24.825" y="-4.711" z="-6.3" />
+                    <line tool_number="0" x="-24.825" y="-4.711" z="-6.1" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -10432,7 +10350,57 @@
                 <text> </text>
                 <text col="axis">J4.711</text>
                 <path col="feed">
-                    <arc i="-4.549" j="4.711" k="0" d="1" tool_number="0" x="-24.825" y="4.711" z="-6.3" />
+                    <arc i="-4.549" j="4.711" k="0" d="1" tool_number="0" x="-24.825" y="4.711" z="-6.1" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G01</text>
+                <text> </text>
+                <text col="axis">X-24.825</text>
+                <text> </text>
+                <text col="axis">Y14.825</text>
+                <path col="feed">
+                    <line tool_number="0" x="-24.825" y="14.825" z="-6.1" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G02</text>
+                <text> </text>
+                <text col="axis">X-22.825</text>
+                <text> </text>
+                <text col="axis">Y14.825</text>
+                <text> </text>
+                <text col="axis">I1</text>
+                <text> </text>
+                <text col="axis">J0</text>
+                <path col="feed">
+                    <arc i="1" j="0" k="0" d="-1" tool_number="0" x="-22.825" y="14.825" z="-6.1" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G01</text>
+                <text> </text>
+                <text col="axis">Z-6.3</text>
+                <text> </text>
+                <text col="axis">F50</text>
+                <path col="feed">
+                    <line tool_number="0" x="-22.825" y="14.825" z="-6.3" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G02</text>
+                <text> </text>
+                <text col="axis">X-24.825</text>
+                <text> </text>
+                <text col="axis">Y14.825</text>
+                <text> </text>
+                <text col="axis">I-1</text>
+                <text> </text>
+                <text col="axis">J0</text>
+                <text> </text>
+                <text col="axis">F200</text>
+                <path col="feed">
+                    <arc i="-1" j="0" k="0" d="-1" tool_number="0" x="-24.825" y="14.825" z="-6.3" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -10534,61 +10502,11 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
-                <text col="axis">X-14.825</text>
-                <text> </text>
-                <text col="axis">Y-24.825</text>
-                <path col="feed">
-                    <line tool_number="0" x="-14.825" y="-24.825" z="-6.3" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G02</text>
-                <text> </text>
-                <text col="axis">X-14.825</text>
-                <text> </text>
-                <text col="axis">Y-22.825</text>
-                <text> </text>
-                <text col="axis">I0</text>
-                <text> </text>
-                <text col="axis">J1</text>
-                <path col="feed">
-                    <arc i="0" j="1" k="0" d="-1" tool_number="0" x="-14.825" y="-22.825" z="-6.3" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G01</text>
-                <text> </text>
-                <text col="axis">Z-6.5</text>
-                <text> </text>
-                <text col="axis">F50</text>
-                <path col="feed">
-                    <line tool_number="0" x="-14.825" y="-22.825" z="-6.5" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G02</text>
-                <text> </text>
-                <text col="axis">X-14.825</text>
-                <text> </text>
-                <text col="axis">Y-24.825</text>
-                <text> </text>
-                <text col="axis">I0</text>
-                <text> </text>
-                <text col="axis">J-1</text>
-                <text> </text>
-                <text col="axis">F200</text>
-                <path col="feed">
-                    <arc i="0" j="-1" k="0" d="-1" tool_number="0" x="-14.825" y="-24.825" z="-6.5" />
-                </path>
-            </ncblock>
-            <ncblock id="0">
-                <text col="feed">G01</text>
-                <text> </text>
                 <text col="axis">X-24.824</text>
                 <text> </text>
                 <text col="axis">Y-24.824</text>
                 <path col="feed">
-                    <line tool_number="0" x="-24.824" y="-24.824" z="-6.5" />
+                    <line tool_number="0" x="-24.824" y="-24.824" z="-6.3" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -10596,7 +10514,7 @@
                 <text> </text>
                 <text col="axis">Y-4.711</text>
                 <path col="feed">
-                    <line tool_number="0" x="-24.825" y="-4.711" z="-6.5" />
+                    <line tool_number="0" x="-24.825" y="-4.711" z="-6.3" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -10610,7 +10528,57 @@
                 <text> </text>
                 <text col="axis">J4.711</text>
                 <path col="feed">
-                    <arc i="-4.549" j="4.711" k="0" d="1" tool_number="0" x="-24.825" y="4.711" z="-6.5" />
+                    <arc i="-4.549" j="4.711" k="0" d="1" tool_number="0" x="-24.825" y="4.711" z="-6.3" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G01</text>
+                <text> </text>
+                <text col="axis">X-24.825</text>
+                <text> </text>
+                <text col="axis">Y14.825</text>
+                <path col="feed">
+                    <line tool_number="0" x="-24.825" y="14.825" z="-6.3" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G02</text>
+                <text> </text>
+                <text col="axis">X-22.825</text>
+                <text> </text>
+                <text col="axis">Y14.825</text>
+                <text> </text>
+                <text col="axis">I1</text>
+                <text> </text>
+                <text col="axis">J0</text>
+                <path col="feed">
+                    <arc i="1" j="0" k="0" d="-1" tool_number="0" x="-22.825" y="14.825" z="-6.3" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G01</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <text> </text>
+                <text col="axis">F50</text>
+                <path col="feed">
+                    <line tool_number="0" x="-22.825" y="14.825" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G02</text>
+                <text> </text>
+                <text col="axis">X-24.825</text>
+                <text> </text>
+                <text col="axis">Y14.825</text>
+                <text> </text>
+                <text col="axis">I-1</text>
+                <text> </text>
+                <text col="axis">J0</text>
+                <text> </text>
+                <text col="axis">F200</text>
+                <path col="feed">
+                    <arc i="-1" j="0" k="0" d="-1" tool_number="0" x="-24.825" y="14.825" z="-6.5" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -10712,25 +10680,57 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
-                <text col="axis">X-14.825</text>
+                <text col="axis">X-24.824</text>
                 <text> </text>
-                <text col="axis">Y-24.825</text>
+                <text col="axis">Y-24.824</text>
                 <path col="feed">
-                    <line tool_number="0" x="-14.825" y="-24.825" z="-6.5" />
+                    <line tool_number="0" x="-24.824" y="-24.824" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X-24.825</text>
+                <text> </text>
+                <text col="axis">Y-4.711</text>
+                <path col="feed">
+                    <line tool_number="0" x="-24.825" y="-4.711" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G03</text>
+                <text> </text>
+                <text col="axis">X-24.825</text>
+                <text> </text>
+                <text col="axis">Y4.711</text>
+                <text> </text>
+                <text col="axis">I-4.549</text>
+                <text> </text>
+                <text col="axis">J4.711</text>
+                <path col="feed">
+                    <arc i="-4.549" j="4.711" k="0" d="1" tool_number="0" x="-24.825" y="4.711" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="feed">G01</text>
+                <text> </text>
+                <text col="axis">X-24.825</text>
+                <text> </text>
+                <text col="axis">Y14.825</text>
+                <path col="feed">
+                    <line tool_number="0" x="-24.825" y="14.825" z="-6.5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="feed">G02</text>
                 <text> </text>
-                <text col="axis">X-14.825</text>
+                <text col="axis">X-22.825</text>
                 <text> </text>
-                <text col="axis">Y-22.825</text>
+                <text col="axis">Y14.825</text>
                 <text> </text>
-                <text col="axis">I0</text>
+                <text col="axis">I1</text>
                 <text> </text>
-                <text col="axis">J1</text>
+                <text col="axis">J0</text>
                 <path col="feed">
-                    <arc i="0" j="1" k="0" d="-1" tool_number="0" x="-14.825" y="-22.825" z="-6.5" />
+                    <arc i="1" j="0" k="0" d="-1" tool_number="0" x="-22.825" y="14.825" z="-6.5" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -10738,7 +10738,7 @@
                 <text> </text>
                 <text col="axis">Z5</text>
                 <path col="rapid">
-                    <line tool_number="0" x="-14.825" y="-22.825" z="5" />
+                    <line tool_number="0" x="-22.825" y="14.825" z="5" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -18418,6 +18418,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X15.075</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-5.75</text>
+                <path col="feed">
+                    <line tool_number="0" x="15.075" y="-35.127" z="-5.75" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X15.825</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="15.825" y="-35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X24.175</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="24.175" y="-35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X24.925</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-5.75</text>
+                <path col="feed">
+                    <line tool_number="0" x="24.925" y="-35.127" z="-5.75" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X30.152</text>
                 <text> </text>
                 <text col="axis">Y-35.127</text>
@@ -18446,6 +18486,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y-5.925</text>
+                <text> </text>
+                <text col="axis">Z-5.75</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="-5.925" z="-5.75" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y-5.175</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="-5.175" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y3.174</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="3.174" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y3.924</text>
+                <text> </text>
+                <text col="axis">Z-5.75</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="3.924" z="-5.75" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X35.127</text>
                 <text> </text>
                 <text col="axis">Y25.456</text>
@@ -18502,6 +18582,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X3.924</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-5.75</text>
+                <path col="feed">
+                    <line tool_number="0" x="3.924" y="35.127" z="-5.75" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X3.174</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="3.174" y="35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X-5.175</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="-5.175" y="35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X-5.925</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-5.75</text>
+                <path col="feed">
+                    <line tool_number="0" x="-5.925" y="35.127" z="-5.75" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X-30.152</text>
                 <text> </text>
                 <text col="axis">Y35.127</text>
@@ -18532,41 +18652,41 @@
                 <text> </text>
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-10.075</text>
+                <text col="axis">Y5.925</text>
                 <text> </text>
                 <text col="axis">Z-5.75</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-10.075" z="-5.75" />
+                    <line tool_number="0" x="-35.127" y="5.925" z="-5.75" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-10.825</text>
+                <text col="axis">Y5.175</text>
                 <text> </text>
                 <text col="axis">Z-5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-10.825" z="-5" />
+                    <line tool_number="0" x="-35.127" y="5.175" z="-5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-19.175</text>
+                <text col="axis">Y-3.175</text>
                 <text> </text>
                 <text col="axis">Z-5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-19.175" z="-5" />
+                    <line tool_number="0" x="-35.127" y="-3.175" z="-5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-19.925</text>
+                <text col="axis">Y-3.925</text>
                 <text> </text>
                 <text col="axis">Z-5.75</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-19.925" z="-5.75" />
+                    <line tool_number="0" x="-35.127" y="-3.925" z="-5.75" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -18682,6 +18802,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X14.825</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-6</text>
+                <path col="feed">
+                    <line tool_number="0" x="14.825" y="-35.127" z="-6" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X15.825</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="15.825" y="-35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X24.175</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="24.175" y="-35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X25.175</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-6</text>
+                <path col="feed">
+                    <line tool_number="0" x="25.175" y="-35.127" z="-6" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X30.152</text>
                 <text> </text>
                 <text col="axis">Y-35.127</text>
@@ -18710,6 +18870,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y-6.175</text>
+                <text> </text>
+                <text col="axis">Z-6</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="-6.175" z="-6" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y-5.175</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="-5.175" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y3.174</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="3.174" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y4.174</text>
+                <text> </text>
+                <text col="axis">Z-6</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="4.174" z="-6" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X35.127</text>
                 <text> </text>
                 <text col="axis">Y25.456</text>
@@ -18766,6 +18966,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X4.174</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-6</text>
+                <path col="feed">
+                    <line tool_number="0" x="4.174" y="35.127" z="-6" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X3.174</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="3.174" y="35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X-5.175</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="-5.175" y="35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X-6.175</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-6</text>
+                <path col="feed">
+                    <line tool_number="0" x="-6.175" y="35.127" z="-6" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X-30.152</text>
                 <text> </text>
                 <text col="axis">Y35.127</text>
@@ -18796,41 +19036,41 @@
                 <text> </text>
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-9.825</text>
+                <text col="axis">Y6.174</text>
                 <text> </text>
                 <text col="axis">Z-6</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-9.825" z="-6" />
+                    <line tool_number="0" x="-35.127" y="6.174" z="-6" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-10.825</text>
+                <text col="axis">Y5.175</text>
                 <text> </text>
                 <text col="axis">Z-5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-10.825" z="-5" />
+                    <line tool_number="0" x="-35.127" y="5.175" z="-5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-19.175</text>
+                <text col="axis">Y-3.175</text>
                 <text> </text>
                 <text col="axis">Z-5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-19.175" z="-5" />
+                    <line tool_number="0" x="-35.127" y="-3.175" z="-5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-20.175</text>
+                <text col="axis">Y-4.174</text>
                 <text> </text>
                 <text col="axis">Z-6</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-20.175" z="-6" />
+                    <line tool_number="0" x="-35.127" y="-4.174" z="-6" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -18946,6 +19186,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X14.575</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-6.25</text>
+                <path col="feed">
+                    <line tool_number="0" x="14.575" y="-35.127" z="-6.25" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X15.825</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="15.825" y="-35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X24.175</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="24.175" y="-35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X25.425</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-6.25</text>
+                <path col="feed">
+                    <line tool_number="0" x="25.425" y="-35.127" z="-6.25" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X30.152</text>
                 <text> </text>
                 <text col="axis">Y-35.127</text>
@@ -18974,6 +19254,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y-6.425</text>
+                <text> </text>
+                <text col="axis">Z-6.25</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="-6.425" z="-6.25" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y-5.175</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="-5.175" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y3.174</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="3.174" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y4.424</text>
+                <text> </text>
+                <text col="axis">Z-6.25</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="4.424" z="-6.25" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X35.127</text>
                 <text> </text>
                 <text col="axis">Y25.456</text>
@@ -19030,6 +19350,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X4.424</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-6.25</text>
+                <path col="feed">
+                    <line tool_number="0" x="4.424" y="35.127" z="-6.25" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X3.174</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="3.174" y="35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X-5.175</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="-5.175" y="35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X-6.425</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-6.25</text>
+                <path col="feed">
+                    <line tool_number="0" x="-6.425" y="35.127" z="-6.25" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X-30.152</text>
                 <text> </text>
                 <text col="axis">Y35.127</text>
@@ -19060,41 +19420,41 @@
                 <text> </text>
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-9.575</text>
+                <text col="axis">Y6.424</text>
                 <text> </text>
                 <text col="axis">Z-6.25</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-9.575" z="-6.25" />
+                    <line tool_number="0" x="-35.127" y="6.424" z="-6.25" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-10.825</text>
+                <text col="axis">Y5.175</text>
                 <text> </text>
                 <text col="axis">Z-5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-10.825" z="-5" />
+                    <line tool_number="0" x="-35.127" y="5.175" z="-5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-19.175</text>
+                <text col="axis">Y-3.175</text>
                 <text> </text>
                 <text col="axis">Z-5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-19.175" z="-5" />
+                    <line tool_number="0" x="-35.127" y="-3.175" z="-5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-20.425</text>
+                <text col="axis">Y-4.424</text>
                 <text> </text>
                 <text col="axis">Z-6.25</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-20.425" z="-6.25" />
+                    <line tool_number="0" x="-35.127" y="-4.424" z="-6.25" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -19210,6 +19570,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X14.325</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="14.325" y="-35.127" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X15.825</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="15.825" y="-35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X24.175</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="24.175" y="-35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X25.675</text>
+                <text> </text>
+                <text col="axis">Y-35.127</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="25.675" y="-35.127" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X30.152</text>
                 <text> </text>
                 <text col="axis">Y-35.127</text>
@@ -19238,6 +19638,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y-6.675</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="-6.675" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y-5.175</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="-5.175" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y3.174</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="3.174" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X35.127</text>
+                <text> </text>
+                <text col="axis">Y4.674</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="35.127" y="4.674" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X35.127</text>
                 <text> </text>
                 <text col="axis">Y25.456</text>
@@ -19294,6 +19734,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X4.674</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="4.674" y="35.127" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X3.174</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="3.174" y="35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X-5.175</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="-5.175" y="35.127" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X-6.675</text>
+                <text> </text>
+                <text col="axis">Y35.127</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="-6.675" y="35.127" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X-30.152</text>
                 <text> </text>
                 <text col="axis">Y35.127</text>
@@ -19324,41 +19804,41 @@
                 <text> </text>
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-9.325</text>
+                <text col="axis">Y6.674</text>
                 <text> </text>
                 <text col="axis">Z-6.5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-9.325" z="-6.5" />
+                    <line tool_number="0" x="-35.127" y="6.674" z="-6.5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-10.825</text>
+                <text col="axis">Y5.175</text>
                 <text> </text>
                 <text col="axis">Z-5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-10.825" z="-5" />
+                    <line tool_number="0" x="-35.127" y="5.175" z="-5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-19.175</text>
+                <text col="axis">Y-3.175</text>
                 <text> </text>
                 <text col="axis">Z-5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-19.175" z="-5" />
+                    <line tool_number="0" x="-35.127" y="-3.175" z="-5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-35.127</text>
                 <text> </text>
-                <text col="axis">Y-20.675</text>
+                <text col="axis">Y-4.674</text>
                 <text> </text>
                 <text col="axis">Z-6.5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-35.127" y="-20.675" z="-6.5" />
+                    <line tool_number="0" x="-35.127" y="-4.674" z="-6.5" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -19500,6 +19980,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X14.325</text>
+                <text> </text>
+                <text col="axis">Y-34.827</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="14.325" y="-34.827" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X15.825</text>
+                <text> </text>
+                <text col="axis">Y-34.827</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="15.825" y="-34.827" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X24.175</text>
+                <text> </text>
+                <text col="axis">Y-34.827</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="24.175" y="-34.827" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X25.675</text>
+                <text> </text>
+                <text col="axis">Y-34.827</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="25.675" y="-34.827" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X30.152</text>
                 <text> </text>
                 <text col="axis">Y-34.827</text>
@@ -19528,6 +20048,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X34.827</text>
+                <text> </text>
+                <text col="axis">Y-6.674</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="34.827" y="-6.674" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X34.827</text>
+                <text> </text>
+                <text col="axis">Y-5.174</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="34.827" y="-5.174" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X34.827</text>
+                <text> </text>
+                <text col="axis">Y3.175</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="34.827" y="3.175" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X34.827</text>
+                <text> </text>
+                <text col="axis">Y4.675</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="34.827" y="4.675" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X34.827</text>
                 <text> </text>
                 <text col="axis">Y25.456</text>
@@ -19584,6 +20144,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X4.675</text>
+                <text> </text>
+                <text col="axis">Y34.827</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="4.675" y="34.827" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X3.175</text>
+                <text> </text>
+                <text col="axis">Y34.827</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="3.175" y="34.827" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X-5.174</text>
+                <text> </text>
+                <text col="axis">Y34.827</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="-5.174" y="34.827" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X-6.674</text>
+                <text> </text>
+                <text col="axis">Y34.827</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="-6.674" y="34.827" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X-30.152</text>
                 <text> </text>
                 <text col="axis">Y34.827</text>
@@ -19614,41 +20214,41 @@
                 <text> </text>
                 <text col="axis">X-34.827</text>
                 <text> </text>
-                <text col="axis">Y-9.325</text>
+                <text col="axis">Y6.674</text>
                 <text> </text>
                 <text col="axis">Z-6.5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-34.827" y="-9.325" z="-6.5" />
+                    <line tool_number="0" x="-34.827" y="6.674" z="-6.5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-34.827</text>
                 <text> </text>
-                <text col="axis">Y-10.825</text>
+                <text col="axis">Y5.175</text>
                 <text> </text>
                 <text col="axis">Z-5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-34.827" y="-10.825" z="-5" />
+                    <line tool_number="0" x="-34.827" y="5.175" z="-5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-34.827</text>
                 <text> </text>
-                <text col="axis">Y-19.175</text>
+                <text col="axis">Y-3.175</text>
                 <text> </text>
                 <text col="axis">Z-5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-34.827" y="-19.175" z="-5" />
+                    <line tool_number="0" x="-34.827" y="-3.175" z="-5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-34.827</text>
                 <text> </text>
-                <text col="axis">Y-20.675</text>
+                <text col="axis">Y-4.674</text>
                 <text> </text>
                 <text col="axis">Z-6.5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-34.827" y="-20.675" z="-6.5" />
+                    <line tool_number="0" x="-34.827" y="-4.674" z="-6.5" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -19846,41 +20446,41 @@
                 <text> </text>
                 <text col="axis">X-34.827</text>
                 <text> </text>
-                <text col="axis">Y-20.675</text>
+                <text col="axis">Y-4.674</text>
                 <text> </text>
                 <text col="axis">Z-6.5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-34.827" y="-20.675" z="-6.5" />
+                    <line tool_number="0" x="-34.827" y="-4.674" z="-6.5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-34.827</text>
                 <text> </text>
-                <text col="axis">Y-19.175</text>
+                <text col="axis">Y-3.175</text>
                 <text> </text>
                 <text col="axis">Z-5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-34.827" y="-19.175" z="-5" />
+                    <line tool_number="0" x="-34.827" y="-3.175" z="-5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-34.827</text>
                 <text> </text>
-                <text col="axis">Y-10.825</text>
+                <text col="axis">Y5.175</text>
                 <text> </text>
                 <text col="axis">Z-5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-34.827" y="-10.825" z="-5" />
+                    <line tool_number="0" x="-34.827" y="5.175" z="-5" />
                 </path>
             </ncblock>
             <ncblock id="0">
                 <text col="axis">X-34.827</text>
                 <text> </text>
-                <text col="axis">Y-9.325</text>
+                <text col="axis">Y6.674</text>
                 <text> </text>
                 <text col="axis">Z-6.5</text>
                 <path col="feed">
-                    <line tool_number="0" x="-34.827" y="-9.325" z="-6.5" />
+                    <line tool_number="0" x="-34.827" y="6.674" z="-6.5" />
                 </path>
             </ncblock>
             <ncblock id="0">
@@ -19912,6 +20512,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X-6.674</text>
+                <text> </text>
+                <text col="axis">Y34.827</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="-6.674" y="34.827" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X-5.174</text>
+                <text> </text>
+                <text col="axis">Y34.827</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="-5.174" y="34.827" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X3.175</text>
+                <text> </text>
+                <text col="axis">Y34.827</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="3.175" y="34.827" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X4.675</text>
+                <text> </text>
+                <text col="axis">Y34.827</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="4.675" y="34.827" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X25.456</text>
                 <text> </text>
                 <text col="axis">Y34.827</text>
@@ -19970,6 +20610,46 @@
                 <text> </text>
                 <text col="axis">X34.827</text>
                 <text> </text>
+                <text col="axis">Y4.675</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="34.827" y="4.675" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X34.827</text>
+                <text> </text>
+                <text col="axis">Y3.175</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="34.827" y="3.175" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X34.827</text>
+                <text> </text>
+                <text col="axis">Y-5.174</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="34.827" y="-5.174" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X34.827</text>
+                <text> </text>
+                <text col="axis">Y-6.674</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="34.827" y="-6.674" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X34.827</text>
+                <text> </text>
                 <text col="axis">Y-30.152</text>
                 <text> </text>
                 <text col="axis">Z-6.5</text>
@@ -19996,6 +20676,46 @@
             <ncblock id="0">
                 <text col="feed">G01</text>
                 <text> </text>
+                <text col="axis">X25.675</text>
+                <text> </text>
+                <text col="axis">Y-34.827</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="25.675" y="-34.827" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X24.175</text>
+                <text> </text>
+                <text col="axis">Y-34.827</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="24.175" y="-34.827" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X15.825</text>
+                <text> </text>
+                <text col="axis">Y-34.827</text>
+                <text> </text>
+                <text col="axis">Z-5</text>
+                <path col="feed">
+                    <line tool_number="0" x="15.825" y="-34.827" z="-5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
+                <text col="axis">X14.325</text>
+                <text> </text>
+                <text col="axis">Y-34.827</text>
+                <text> </text>
+                <text col="axis">Z-6.5</text>
+                <path col="feed">
+                    <line tool_number="0" x="14.325" y="-34.827" z="-6.5" />
+                </path>
+            </ncblock>
+            <ncblock id="0">
                 <text col="axis">X0.607</text>
                 <text> </text>
                 <text col="axis">Y-34.827</text>
@@ -20520,7 +21240,7 @@
             <![CDATA[ISO-10303-21;
 HEADER;
 FILE_DESCRIPTION(('Open CASCADE Model'),'2;1');
-FILE_NAME('Open CASCADE Shape Model','2017-05-03T10:12:01',('Author'),(
+FILE_NAME('Open CASCADE Shape Model','2017-05-03T13:45:57',('Author'),(
     'Open CASCADE'),'Open CASCADE STEP processor 6.9','Open CASCADE 6.9'
   ,'Unknown');
 FILE_SCHEMA(('AUTOMOTIVE_DESIGN { 1 0 10303 214 1 1 1 1 }'));
@@ -20534,8 +21254,8 @@ DATA;
 #4 = PRODUCT_DEFINITION_SHAPE('','',#5);
 #5 = PRODUCT_DEFINITION('design','',#6,#9);
 #6 = PRODUCT_DEFINITION_FORMATION('','',#7);
-#7 = PRODUCT('Open CASCADE STEP translator 6.9 1',
-  'Open CASCADE STEP translator 6.9 1','',(#8));
+#7 = PRODUCT('Open CASCADE STEP translator 6.9 3',
+  'Open CASCADE STEP translator 6.9 3','',(#8));
 #8 = PRODUCT_CONTEXT('',#2,'mechanical');
 #9 = PRODUCT_DEFINITION_CONTEXT('part definition',#2,'design');
 #10 = ADVANCED_BREP_SHAPE_REPRESENTATION('',(#11,#15),#5223);
@@ -20738,13 +21458,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #175 = AXIS2_PLACEMENT_3D('',#176,#177,#178);
 #176 = CARTESIAN_POINT('',(-52.9999988744,0.,401.85));
 #177 = DIRECTION('',(0.,0.,-1.));
-#178 = DIRECTION('',(0.997083476891,7.63186747158E-02,0.));
+#178 = DIRECTION('',(0.997083476891,7.631867471582E-02,0.));
 #179 = PCURVE('',#44,#180);
 #180 = DEFINITIONAL_REPRESENTATION('',(#181),#185);
 #181 = CIRCLE('',#182,9.749998971719);
 #182 = AXIS2_PLACEMENT_2D('',#183,#184);
 #183 = CARTESIAN_POINT('',(52.601894802174,5.463203333398E-16));
-#184 = DIRECTION('',(-0.997083476891,7.63186747158E-02));
+#184 = DIRECTION('',(-0.997083476891,7.631867471582E-02));
 #185 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -20753,7 +21473,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #188 = AXIS2_PLACEMENT_3D('',#189,#190,#191);
 #189 = CARTESIAN_POINT('',(-52.9999988744,0.,401.35));
 #190 = DIRECTION('',(0.,0.,-1.));
-#191 = DIRECTION('',(0.997083476891,7.63186747158E-02,0.));
+#191 = DIRECTION('',(0.997083476891,7.631867471582E-02,0.));
 #192 = DEFINITIONAL_REPRESENTATION('',(#193),#197);
 #193 = LINE('',#194,#195);
 #194 = CARTESIAN_POINT('',(0.,-0.5));
@@ -20771,7 +21491,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #204 = AXIS2_PLACEMENT_3D('',#205,#206,#207);
 #205 = CARTESIAN_POINT('',(-41.78281100641,-0.858584967522,401.85));
 #206 = DIRECTION('',(0.,0.,1.));
-#207 = DIRECTION('',(-0.99708347829,7.631865643725E-02,0.));
+#207 = DIRECTION('',(-0.99708347829,7.631865643728E-02,0.));
 #208 = PCURVE('',#44,#209);
 #209 = DEFINITIONAL_REPRESENTATION('',(#210),#218);
 #210 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#211,#212,#213,#214,#215,#216
@@ -20795,7 +21515,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #221 = AXIS2_PLACEMENT_3D('',#222,#223,#224);
 #222 = CARTESIAN_POINT('',(-41.78281100641,-0.858584967522,401.35));
 #223 = DIRECTION('',(-0.,-0.,-1.));
-#224 = DIRECTION('',(-0.99708347829,7.631865643725E-02,0.));
+#224 = DIRECTION('',(-0.99708347829,7.631865643728E-02,0.));
 #225 = DEFINITIONAL_REPRESENTATION('',(#226),#230);
 #226 = LINE('',#227,#228);
 #227 = CARTESIAN_POINT('',(6.28318530718,-0.5));
@@ -20961,7 +21681,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #359 = AXIS2_PLACEMENT_3D('',#360,#361,#362);
 #360 = CARTESIAN_POINT('',(-52.99999934603,0.,401.85));
 #361 = DIRECTION('',(-0.,0.,1.));
-#362 = DIRECTION('',(0.999353913394,-3.594100420675E-02,0.));
+#362 = DIRECTION('',(0.999353913394,-3.594100420676E-02,0.));
 #363 = PCURVE('',#44,#364);
 #364 = DEFINITIONAL_REPRESENTATION('',(#365),#373);
 #365 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#366,#367,#368,#369,#370,#371
@@ -20970,13 +21690,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 8.377580409573),.UNSPECIFIED.) CURVE() GEOMETRIC_REPRESENTATION_ITEM() 
 RATIONAL_B_SPLINE_CURVE((1.,0.5,1.,0.5,1.,0.5,1.)) REPRESENTATION_ITEM(
   '') );
-#366 = CARTESIAN_POINT('',(-41.21827107223,-3.374171000009));
-#367 = CARTESIAN_POINT('',(-47.06250667767,159.12712388589));
-#368 = CARTESIAN_POINT('',(96.589860644102,82.937732942955));
-#369 = CARTESIAN_POINT('',(240.24222796587,6.748342000019));
+#366 = CARTESIAN_POINT('',(-41.21827107223,-3.37417100001));
+#367 = CARTESIAN_POINT('',(-47.06250667767,159.12712388588));
+#368 = CARTESIAN_POINT('',(96.589860644101,82.937732942955));
+#369 = CARTESIAN_POINT('',(240.24222796587,6.748342000021));
 #370 = CARTESIAN_POINT('',(102.43409624954,-79.56356194294));
-#371 = CARTESIAN_POINT('',(-35.37403546679,-165.8754658859));
-#372 = CARTESIAN_POINT('',(-41.21827107223,-3.374171000009));
+#371 = CARTESIAN_POINT('',(-35.37403546678,-165.8754658859));
+#372 = CARTESIAN_POINT('',(-41.21827107223,-3.37417100001));
 #373 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -20985,7 +21705,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #376 = AXIS2_PLACEMENT_3D('',#377,#378,#379);
 #377 = CARTESIAN_POINT('',(-52.99999934603,0.,401.35));
 #378 = DIRECTION('',(-0.,-0.,-1.));
-#379 = DIRECTION('',(0.999353913394,-3.594100420675E-02,0.));
+#379 = DIRECTION('',(0.999353913394,-3.594100420676E-02,0.));
 #380 = DEFINITIONAL_REPRESENTATION('',(#381),#385);
 #381 = LINE('',#382,#383);
 #382 = CARTESIAN_POINT('',(6.28318530718,-0.5));
@@ -21159,7 +21879,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #516 = AXIS2_PLACEMENT_3D('',#517,#518,#519);
 #517 = CARTESIAN_POINT('',(-53.00001335049,0.,401.85));
 #518 = DIRECTION('',(-0.,0.,1.));
-#519 = DIRECTION('',(0.999353913394,-3.594100420676E-02,0.));
+#519 = DIRECTION('',(0.999353913394,-3.594100420677E-02,0.));
 #520 = PCURVE('',#44,#521);
 #521 = DEFINITIONAL_REPRESENTATION('',(#522),#530);
 #522 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#523,#524,#525,#526,#527,#528
@@ -21168,13 +21888,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 8.377580409573),.UNSPECIFIED.) CURVE() GEOMETRIC_REPRESENTATION_ITEM() 
 RATIONAL_B_SPLINE_CURVE((1.,0.5,1.,0.5,1.,0.5,1.)) REPRESENTATION_ITEM(
   '') );
-#523 = CARTESIAN_POINT('',(-40.71859407222,-3.356201000009));
+#523 = CARTESIAN_POINT('',(-40.71859407222,-3.35620100001));
 #524 = CARTESIAN_POINT('',(-46.53170472465,158.27965219094));
-#525 = CARTESIAN_POINT('',(96.355605627294,82.49602709548));
-#526 = CARTESIAN_POINT('',(239.24291597924,6.712402000018));
+#525 = CARTESIAN_POINT('',(96.355605627293,82.49602709548));
+#526 = CARTESIAN_POINT('',(239.24291597924,6.71240200002));
 #527 = CARTESIAN_POINT('',(102.16871627972,-79.13982609547));
 #528 = CARTESIAN_POINT('',(-34.90548341979,-164.9920541909));
-#529 = CARTESIAN_POINT('',(-40.71859407222,-3.356201000009));
+#529 = CARTESIAN_POINT('',(-40.71859407222,-3.35620100001));
 #530 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -21183,7 +21903,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #533 = AXIS2_PLACEMENT_3D('',#534,#535,#536);
 #534 = CARTESIAN_POINT('',(-53.00001335049,0.,401.35));
 #535 = DIRECTION('',(-0.,-0.,-1.));
-#536 = DIRECTION('',(0.999353913394,-3.594100420676E-02,0.));
+#536 = DIRECTION('',(0.999353913394,-3.594100420677E-02,0.));
 #537 = DEFINITIONAL_REPRESENTATION('',(#538),#542);
 #538 = LINE('',#539,#540);
 #539 = CARTESIAN_POINT('',(6.28318530718,-0.5));
@@ -21391,13 +22111,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #704 = AXIS2_PLACEMENT_3D('',#705,#706,#707);
 #705 = CARTESIAN_POINT('',(-52.99999420536,0.,401.85));
 #706 = DIRECTION('',(0.,0.,-1.));
-#707 = DIRECTION('',(0.997083476891,7.63186747158E-02,0.));
+#707 = DIRECTION('',(0.997083476891,7.631867471582E-02,0.));
 #708 = PCURVE('',#44,#709);
 #709 = DEFINITIONAL_REPRESENTATION('',(#710),#714);
 #710 = CIRCLE('',#711,10.249994551335);
 #711 = AXIS2_PLACEMENT_2D('',#712,#713);
 #712 = CARTESIAN_POINT('',(52.601890133134,5.463203333398E-16));
-#713 = DIRECTION('',(-0.997083476891,7.63186747158E-02));
+#713 = DIRECTION('',(-0.997083476891,7.631867471582E-02));
 #714 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -21406,7 +22126,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #717 = AXIS2_PLACEMENT_3D('',#718,#719,#720);
 #718 = CARTESIAN_POINT('',(-52.99999420536,0.,401.35));
 #719 = DIRECTION('',(0.,0.,-1.));
-#720 = DIRECTION('',(0.997083476891,7.63186747158E-02,0.));
+#720 = DIRECTION('',(0.997083476891,7.631867471582E-02,0.));
 #721 = DEFINITIONAL_REPRESENTATION('',(#722),#726);
 #722 = LINE('',#723,#724);
 #723 = CARTESIAN_POINT('',(8.665159920348E-17,-0.5));
@@ -21643,13 +22363,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #912 = AXIS2_PLACEMENT_3D('',#913,#914,#915);
 #913 = CARTESIAN_POINT('',(-52.9999988744,0.,407.35));
 #914 = DIRECTION('',(0.,0.,-1.));
-#915 = DIRECTION('',(0.997083476891,7.63186747158E-02,0.));
+#915 = DIRECTION('',(0.997083476891,7.631867471582E-02,0.));
 #916 = PCURVE('',#100,#917);
 #917 = DEFINITIONAL_REPRESENTATION('',(#918),#922);
 #918 = CIRCLE('',#919,9.749998971719);
 #919 = AXIS2_PLACEMENT_2D('',#920,#921);
 #920 = CARTESIAN_POINT('',(52.601894802174,5.463203333398E-16));
-#921 = DIRECTION('',(-0.997083476891,7.63186747158E-02));
+#921 = DIRECTION('',(-0.997083476891,7.631867471582E-02));
 #922 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -21671,7 +22391,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #936 = AXIS2_PLACEMENT_3D('',#937,#938,#939);
 #937 = CARTESIAN_POINT('',(-41.78281100641,-0.858584967522,407.35));
 #938 = DIRECTION('',(0.,0.,1.));
-#939 = DIRECTION('',(-0.99708347829,7.631865643725E-02,0.));
+#939 = DIRECTION('',(-0.99708347829,7.631865643728E-02,0.));
 #940 = PCURVE('',#100,#941);
 #941 = DEFINITIONAL_REPRESENTATION('',(#942),#950);
 #942 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#943,#944,#945,#946,#947,#948
@@ -21836,7 +22556,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1066 = AXIS2_PLACEMENT_3D('',#1067,#1068,#1069);
 #1067 = CARTESIAN_POINT('',(-52.99999934603,0.,407.35));
 #1068 = DIRECTION('',(-0.,0.,1.));
-#1069 = DIRECTION('',(0.999353913394,-3.594100420675E-02,0.));
+#1069 = DIRECTION('',(0.999353913394,-3.594100420676E-02,0.));
 #1070 = PCURVE('',#100,#1071);
 #1071 = DEFINITIONAL_REPRESENTATION('',(#1072),#1080);
 #1072 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#1073,#1074,#1075,#1076,
@@ -21845,13 +22565,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 6.28318530718,8.377580409573),.UNSPECIFIED.) CURVE() 
 GEOMETRIC_REPRESENTATION_ITEM() RATIONAL_B_SPLINE_CURVE((1.,0.5,1.,0.5,
 1.,0.5,1.)) REPRESENTATION_ITEM('') );
-#1073 = CARTESIAN_POINT('',(-41.21827107223,-3.374171000009));
-#1074 = CARTESIAN_POINT('',(-47.06250667767,159.12712388589));
-#1075 = CARTESIAN_POINT('',(96.589860644102,82.937732942955));
-#1076 = CARTESIAN_POINT('',(240.24222796587,6.748342000019));
+#1073 = CARTESIAN_POINT('',(-41.21827107223,-3.37417100001));
+#1074 = CARTESIAN_POINT('',(-47.06250667767,159.12712388588));
+#1075 = CARTESIAN_POINT('',(96.589860644101,82.937732942955));
+#1076 = CARTESIAN_POINT('',(240.24222796587,6.748342000021));
 #1077 = CARTESIAN_POINT('',(102.43409624954,-79.56356194294));
-#1078 = CARTESIAN_POINT('',(-35.37403546679,-165.8754658859));
-#1079 = CARTESIAN_POINT('',(-41.21827107223,-3.374171000009));
+#1078 = CARTESIAN_POINT('',(-35.37403546678,-165.8754658859));
+#1079 = CARTESIAN_POINT('',(-41.21827107223,-3.37417100001));
 #1080 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -22025,15 +22745,15 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1218 = AXIS2_PLACEMENT_3D('',#1219,#1220,#1221);
 #1219 = CARTESIAN_POINT('',(20.449677848786,-19.4311449603,
     404.41343270271));
-#1220 = DIRECTION('',(0.707106781711,-0.707106780663,-4.658658629075E-08
+#1220 = DIRECTION('',(0.707106781711,-0.707106780663,-4.658658629072E-08
     ));
-#1221 = DIRECTION('',(0.707106780663,0.707106781711,3.308722450212E-24)
+#1221 = DIRECTION('',(0.707106780663,0.707106781711,-3.308722450212E-24)
   );
 #1222 = DEFINITIONAL_REPRESENTATION('',(#1223),#1227);
 #1223 = LINE('',#1224,#1225);
 #1224 = CARTESIAN_POINT('',(-24.43165361143,2.93656729729));
 #1225 = VECTOR('',#1226,1.);
-#1226 = DIRECTION('',(1.,3.452289476867E-17));
+#1226 = DIRECTION('',(1.,3.452289807737E-17));
 #1227 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -22046,7 +22766,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1234 = AXIS2_PLACEMENT_3D('',#1235,#1236,#1237);
 #1235 = CARTESIAN_POINT('',(0.,-36.6229801563,407.35));
 #1236 = DIRECTION('',(0.,0.,1.));
-#1237 = DIRECTION('',(-0.999650353436,-2.64418394691E-02,0.));
+#1237 = DIRECTION('',(-0.999650353436,-2.644183946911E-02,0.));
 #1238 = PCURVE('',#100,#1239);
 #1239 = DEFINITIONAL_REPRESENTATION('',(#1240),#1248);
 #1240 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#1241,#1242,#1243,#1244,
@@ -22057,7 +22777,7 @@ GEOMETRIC_REPRESENTATION_ITEM() RATIONAL_B_SPLINE_CURVE((1.,0.5,1.,0.5,
 1.,0.5,1.)) REPRESENTATION_ITEM('') );
 #1241 = CARTESIAN_POINT('',(2.775785927774,-36.70693299999));
 #1242 = CARTESIAN_POINT('',(2.630375337053,-42.20427173763));
-#1243 = CARTESIAN_POINT('',(-2.057754367586,-39.32967310326));
+#1243 = CARTESIAN_POINT('',(-2.057754367587,-39.32967310326));
 #1244 = CARTESIAN_POINT('',(-6.745884072226,-36.4550744689));
 #1245 = CARTESIAN_POINT('',(-1.912343776865,-33.83233436563));
 #1246 = CARTESIAN_POINT('',(2.921196518495,-31.20959426236));
@@ -22070,7 +22790,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1251 = AXIS2_PLACEMENT_3D('',#1252,#1253,#1254);
 #1252 = CARTESIAN_POINT('',(0.,-36.6229801563,401.85));
 #1253 = DIRECTION('',(-0.,-0.,-1.));
-#1254 = DIRECTION('',(-0.999650353436,-2.64418394691E-02,0.));
+#1254 = DIRECTION('',(-0.999650353436,-2.644183946911E-02,0.));
 #1255 = DEFINITIONAL_REPRESENTATION('',(#1256),#1260);
 #1256 = LINE('',#1257,#1258);
 #1257 = CARTESIAN_POINT('',(6.28318530718,-5.5));
@@ -22103,14 +22823,14 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1280 = CARTESIAN_POINT('',(-19.4311449603,-20.44967784878,
     404.41343270271));
 #1281 = DIRECTION('',(-0.707106780663,-0.707106781711,
-    -4.658658557606E-08));
-#1282 = DIRECTION('',(-0.707106781711,0.707106780663,-3.308722450212E-24
-    ));
+    -4.658658557603E-08));
+#1282 = DIRECTION('',(-0.707106781711,0.707106780663,3.308722450212E-24)
+  );
 #1283 = DEFINITIONAL_REPRESENTATION('',(#1284),#1288);
 #1284 = LINE('',#1285,#1286);
 #1285 = CARTESIAN_POINT('',(24.431653611426,-2.93656729729));
 #1286 = VECTOR('',#1287,1.);
-#1287 = DIRECTION('',(-1.,-3.452289423905E-17));
+#1287 = DIRECTION('',(-1.,-3.452290085648E-17));
 #1288 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -22123,18 +22843,18 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1295 = AXIS2_PLACEMENT_3D('',#1296,#1297,#1298);
 #1296 = CARTESIAN_POINT('',(-36.6229801563,0.,407.35));
 #1297 = DIRECTION('',(0.,0.,1.));
-#1298 = DIRECTION('',(-2.64418394691E-02,0.999650353436,0.));
+#1298 = DIRECTION('',(-2.644183946911E-02,0.999650353436,0.));
 #1299 = PCURVE('',#100,#1300);
 #1300 = DEFINITIONAL_REPRESENTATION('',(#1301),#1309);
 #1301 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#1302,#1303,#1304,#1305,
-#1306,#1307,#1308),.UNSPECIFIED.,.T.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
+#1306,#1307,#1308),.UNSPECIFIED.,.F.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
     ,2,2,2,1),(-2.094395102393,0.,2.094395102393,4.188790204786,
 6.28318530718,8.377580409573),.UNSPECIFIED.) CURVE() 
 GEOMETRIC_REPRESENTATION_ITEM() RATIONAL_B_SPLINE_CURVE((1.,0.5,1.,0.5,
 1.,0.5,1.)) REPRESENTATION_ITEM('') );
 #1302 = CARTESIAN_POINT('',(36.30882892777,3.17389));
 #1303 = CARTESIAN_POINT('',(41.806167665404,3.028479409279));
-#1304 = CARTESIAN_POINT('',(38.931569031043,-1.65965029536));
+#1304 = CARTESIAN_POINT('',(38.931569031043,-1.659650295361));
 #1305 = CARTESIAN_POINT('',(36.056970396682,-6.34778));
 #1306 = CARTESIAN_POINT('',(33.434230293409,-1.514239704639));
 #1307 = CARTESIAN_POINT('',(30.811490190135,3.319300590721));
@@ -22147,7 +22867,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1312 = AXIS2_PLACEMENT_3D('',#1313,#1314,#1315);
 #1313 = CARTESIAN_POINT('',(-36.6229801563,0.,401.85));
 #1314 = DIRECTION('',(-0.,-0.,-1.));
-#1315 = DIRECTION('',(-2.64418394691E-02,0.999650353436,0.));
+#1315 = DIRECTION('',(-2.644183946911E-02,0.999650353436,0.));
 #1316 = DEFINITIONAL_REPRESENTATION('',(#1317),#1321);
 #1317 = LINE('',#1318,#1319);
 #1318 = CARTESIAN_POINT('',(6.28318530718,-5.5));
@@ -22179,15 +22899,15 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1340 = AXIS2_PLACEMENT_3D('',#1341,#1342,#1343);
 #1341 = CARTESIAN_POINT('',(-20.44967784878,19.431144960308,
     404.41343270271));
-#1342 = DIRECTION('',(-0.707106781711,0.707106780663,-4.658658590959E-08
+#1342 = DIRECTION('',(-0.707106781711,0.707106780663,-4.658658590956E-08
     ));
-#1343 = DIRECTION('',(-0.707106780663,-0.707106781711,
-    -3.308722450212E-24));
+#1343 = DIRECTION('',(-0.707106780663,-0.707106781711,3.308722450212E-24
+    ));
 #1344 = DEFINITIONAL_REPRESENTATION('',(#1345),#1349);
 #1345 = LINE('',#1346,#1347);
 #1346 = CARTESIAN_POINT('',(-24.43165361142,2.93656729729));
 #1347 = VECTOR('',#1348,1.);
-#1348 = DIRECTION('',(1.,3.452289779494E-17));
+#1348 = DIRECTION('',(1.,3.452289117747E-17));
 #1349 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -22200,7 +22920,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1356 = AXIS2_PLACEMENT_3D('',#1357,#1358,#1359);
 #1357 = CARTESIAN_POINT('',(0.,36.622980156304,407.35));
 #1358 = DIRECTION('',(0.,-0.,1.));
-#1359 = DIRECTION('',(0.999650353436,2.644183946911E-02,0.));
+#1359 = DIRECTION('',(0.999650353436,2.644183946912E-02,0.));
 #1360 = PCURVE('',#100,#1361);
 #1361 = DEFINITIONAL_REPRESENTATION('',(#1362),#1370);
 #1362 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#1363,#1364,#1365,#1366,
@@ -22224,7 +22944,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1373 = AXIS2_PLACEMENT_3D('',#1374,#1375,#1376);
 #1374 = CARTESIAN_POINT('',(0.,36.622980156304,401.85));
 #1375 = DIRECTION('',(-0.,-0.,-1.));
-#1376 = DIRECTION('',(0.999650353436,2.644183946911E-02,-0.));
+#1376 = DIRECTION('',(0.999650353436,2.644183946912E-02,-0.));
 #1377 = DEFINITIONAL_REPRESENTATION('',(#1378),#1382);
 #1378 = LINE('',#1379,#1380);
 #1379 = CARTESIAN_POINT('',(6.28318530718,-5.5));
@@ -22256,14 +22976,14 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1401 = AXIS2_PLACEMENT_3D('',#1402,#1403,#1404);
 #1402 = CARTESIAN_POINT('',(19.431144960308,20.449677848786,
     404.41343270271));
-#1403 = DIRECTION('',(0.707106780663,0.707106781711,-4.658658581429E-08)
+#1403 = DIRECTION('',(0.707106780663,0.707106781711,-4.658658581426E-08)
   );
 #1404 = DIRECTION('',(0.707106781711,-0.707106780663,0.));
 #1405 = DEFINITIONAL_REPRESENTATION('',(#1406),#1410);
 #1406 = LINE('',#1407,#1408);
 #1407 = CARTESIAN_POINT('',(24.431653611424,-2.93656729729));
 #1408 = VECTOR('',#1409,1.);
-#1409 = DIRECTION('',(-1.,-3.452289441559E-17));
+#1409 = DIRECTION('',(-1.,-3.452289441557E-17));
 #1410 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -22274,7 +22994,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1415 = AXIS2_PLACEMENT_3D('',#1416,#1417,#1418);
 #1416 = CARTESIAN_POINT('',(36.622980156304,0.,407.35));
 #1417 = DIRECTION('',(-0.,0.,1.));
-#1418 = DIRECTION('',(2.644183946911E-02,-0.999650353436,0.));
+#1418 = DIRECTION('',(2.644183946912E-02,-0.999650353436,0.));
 #1419 = PCURVE('',#100,#1420);
 #1420 = DEFINITIONAL_REPRESENTATION('',(#1421),#1429);
 #1421 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#1422,#1423,#1424,#1425,
@@ -22298,7 +23018,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1432 = AXIS2_PLACEMENT_3D('',#1433,#1434,#1435);
 #1433 = CARTESIAN_POINT('',(36.622980156304,0.,401.85));
 #1434 = DIRECTION('',(-0.,-0.,-1.));
-#1435 = DIRECTION('',(2.644183946911E-02,-0.999650353436,0.));
+#1435 = DIRECTION('',(2.644183946912E-02,-0.999650353436,0.));
 #1436 = DEFINITIONAL_REPRESENTATION('',(#1437),#1441);
 #1437 = LINE('',#1438,#1439);
 #1438 = CARTESIAN_POINT('',(6.28318530718,-5.5));
@@ -22809,7 +23529,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #1875 = AXIS2_PLACEMENT_3D('',#1876,#1877,#1878);
 #1876 = CARTESIAN_POINT('',(-53.00001335049,0.,401.35));
 #1877 = DIRECTION('',(-0.,0.,1.));
-#1878 = DIRECTION('',(0.999353913394,-3.594100420676E-02,0.));
+#1878 = DIRECTION('',(0.999353913394,-3.594100420677E-02,0.));
 #1879 = PCURVE('',#532,#1880);
 #1880 = DEFINITIONAL_REPRESENTATION('',(#1881),#1885);
 #1881 = LINE('',#1882,#1883);
@@ -22827,13 +23547,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 6.28318530718,8.377580409573),.UNSPECIFIED.) CURVE() 
 GEOMETRIC_REPRESENTATION_ITEM() RATIONAL_B_SPLINE_CURVE((1.,0.5,1.,0.5,
 1.,0.5,1.)) REPRESENTATION_ITEM('') );
-#1889 = CARTESIAN_POINT('',(-40.71859407222,-3.356201000009));
+#1889 = CARTESIAN_POINT('',(-40.71859407222,-3.35620100001));
 #1890 = CARTESIAN_POINT('',(-46.53170472465,158.27965219094));
-#1891 = CARTESIAN_POINT('',(96.355605627294,82.49602709548));
-#1892 = CARTESIAN_POINT('',(239.24291597924,6.712402000018));
+#1891 = CARTESIAN_POINT('',(96.355605627293,82.49602709548));
+#1892 = CARTESIAN_POINT('',(239.24291597924,6.71240200002));
 #1893 = CARTESIAN_POINT('',(102.16871627972,-79.13982609547));
 #1894 = CARTESIAN_POINT('',(-34.90548341979,-164.9920541909));
-#1895 = CARTESIAN_POINT('',(-40.71859407222,-3.356201000009));
+#1895 = CARTESIAN_POINT('',(-40.71859407222,-3.35620100001));
 #1896 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -23399,7 +24119,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2364 = AXIS2_PLACEMENT_3D('',#2365,#2366,#2367);
 #2365 = CARTESIAN_POINT('',(-52.99999420536,0.,401.35));
 #2366 = DIRECTION('',(0.,0.,-1.));
-#2367 = DIRECTION('',(0.997083476891,7.63186747158E-02,0.));
+#2367 = DIRECTION('',(0.997083476891,7.631867471582E-02,0.));
 #2368 = PCURVE('',#716,#2369);
 #2369 = DEFINITIONAL_REPRESENTATION('',(#2370),#2374);
 #2370 = LINE('',#2371,#2372);
@@ -23414,7 +24134,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2377 = CIRCLE('',#2378,10.249994551335);
 #2378 = AXIS2_PLACEMENT_2D('',#2379,#2380);
 #2379 = CARTESIAN_POINT('',(52.601890133134,5.463203333398E-16));
-#2380 = DIRECTION('',(-0.997083476891,7.63186747158E-02));
+#2380 = DIRECTION('',(-0.997083476891,7.631867471582E-02));
 #2381 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -23551,7 +24271,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2489 = LINE('',#2490,#2491);
 #2490 = CARTESIAN_POINT('',(-25.7452112306,-2.56343270271));
 #2491 = VECTOR('',#2492,1.);
-#2492 = DIRECTION('',(1.,1.649390474352E-15));
+#2492 = DIRECTION('',(1.,1.649390477659E-15));
 #2493 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -23583,7 +24303,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2517 = LINE('',#2518,#2519);
 #2518 = CARTESIAN_POINT('',(-24.43165361143,-2.56343270271));
 #2519 = VECTOR('',#2520,1.);
-#2520 = DIRECTION('',(1.,3.452289476867E-17));
+#2520 = DIRECTION('',(1.,3.452289807737E-17));
 #2521 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -23616,7 +24336,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2545 = LINE('',#2546,#2547);
 #2546 = CARTESIAN_POINT('',(3.905801965472,-3.06343270271));
 #2547 = VECTOR('',#2548,1.);
-#2548 = DIRECTION('',(3.308722450212E-24,1.));
+#2548 = DIRECTION('',(-6.617444900424E-24,1.));
 #2549 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -23625,7 +24345,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2552 = AXIS2_PLACEMENT_3D('',#2553,#2554,#2555);
 #2553 = CARTESIAN_POINT('',(20.966432655162,-14.42426142566,401.35));
 #2554 = DIRECTION('',(-0.,-0.,-1.));
-#2555 = DIRECTION('',(-3.073563354365E-02,-0.99952754881,0.));
+#2555 = DIRECTION('',(-3.073563354366E-02,-0.99952754881,0.));
 #2556 = DEFINITIONAL_REPRESENTATION('',(#2557),#2561);
 #2557 = LINE('',#2558,#2559);
 #2558 = CARTESIAN_POINT('',(5.467046720074,0.));
@@ -23648,7 +24368,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2573 = LINE('',#2574,#2575);
 #2574 = CARTESIAN_POINT('',(3.905801965472,-3.06343270271));
 #2575 = VECTOR('',#2576,1.);
-#2576 = DIRECTION('',(1.,-1.580344688123E-15));
+#2576 = DIRECTION('',(1.,-1.580344684813E-15));
 #2577 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -23675,7 +24395,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2596 = LINE('',#2597,#2598);
 #2597 = CARTESIAN_POINT('',(24.304788205988,-3.06343270271));
 #2598 = VECTOR('',#2599,1.);
-#2599 = DIRECTION('',(3.308722450212E-24,1.));
+#2599 = DIRECTION('',(-6.617444900424E-24,1.));
 #2600 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -23707,7 +24427,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2624 = LINE('',#2625,#2626);
 #2625 = CARTESIAN_POINT('',(3.905801965472,-2.56343270271));
 #2626 = VECTOR('',#2627,1.);
-#2627 = DIRECTION('',(1.,-1.580344688123E-15));
+#2627 = DIRECTION('',(1.,-1.580344684813E-15));
 #2628 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -23738,7 +24458,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2650 = LINE('',#2651,#2652);
 #2651 = CARTESIAN_POINT('',(22.99123058681,-2.56343270271));
 #2652 = VECTOR('',#2653,1.);
-#2653 = DIRECTION('',(3.308722450212E-24,1.));
+#2653 = DIRECTION('',(-6.617444900424E-24,1.));
 #2654 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -23764,7 +24484,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2672 = LINE('',#2673,#2674);
 #2673 = CARTESIAN_POINT('',(-24.43165361143,-2.56343270271));
 #2674 = VECTOR('',#2675,1.);
-#2675 = DIRECTION('',(3.308722450212E-24,1.));
+#2675 = DIRECTION('',(-6.617444900424E-24,1.));
 #2676 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -23789,7 +24509,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2693 = AXIS2_PLACEMENT_3D('',#2694,#2695,#2696);
 #2694 = CARTESIAN_POINT('',(0.,-36.6229801563,401.85));
 #2695 = DIRECTION('',(0.,0.,1.));
-#2696 = DIRECTION('',(-0.999650353436,-2.64418394691E-02,0.));
+#2696 = DIRECTION('',(-0.999650353436,-2.644183946911E-02,0.));
 #2697 = PCURVE('',#1250,#2698);
 #2698 = DEFINITIONAL_REPRESENTATION('',(#2699),#2703);
 #2699 = LINE('',#2700,#2701);
@@ -23808,7 +24528,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2709 = DIRECTION('',(-1.,0.,0.));
 #2710 = DEFINITIONAL_REPRESENTATION('',(#2711),#2719);
 #2711 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#2712,#2713,#2714,#2715,
-#2716,#2717,#2718),.UNSPECIFIED.,.F.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
+#2716,#2717,#2718),.UNSPECIFIED.,.T.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
     ,2,2,2,1),(-2.094395102393,0.,2.094395102393,4.188790204786,
 6.28318530718,8.377580409573),.UNSPECIFIED.) CURVE() 
 GEOMETRIC_REPRESENTATION_ITEM() RATIONAL_B_SPLINE_CURVE((1.,0.5,1.,0.5,
@@ -23846,7 +24566,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2738 = LINE('',#2739,#2740);
 #2739 = CARTESIAN_POINT('',(-22.99123058681,2.56343270271));
 #2740 = VECTOR('',#2741,1.);
-#2741 = DIRECTION('',(-3.308722450212E-24,-1.));
+#2741 = DIRECTION('',(3.308722450212E-24,-1.));
 #2742 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -23862,7 +24582,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2752 = AXIS2_PLACEMENT_3D('',#2753,#2754,#2755);
 #2753 = CARTESIAN_POINT('',(36.622980156304,0.,401.85));
 #2754 = DIRECTION('',(-0.,0.,1.));
-#2755 = DIRECTION('',(2.644183946911E-02,-0.999650353436,0.));
+#2755 = DIRECTION('',(2.644183946912E-02,-0.999650353436,0.));
 #2756 = PCURVE('',#1431,#2757);
 #2757 = DEFINITIONAL_REPRESENTATION('',(#2758),#2762);
 #2758 = LINE('',#2759,#2760);
@@ -23937,7 +24657,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2813 = LINE('',#2814,#2815);
 #2814 = CARTESIAN_POINT('',(25.745211230604,2.56343270271));
 #2815 = VECTOR('',#2816,1.);
-#2816 = DIRECTION('',(-1.,-1.649390449048E-15));
+#2816 = DIRECTION('',(-1.,-1.649390455664E-15));
 #2817 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -23969,7 +24689,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2841 = LINE('',#2842,#2843);
 #2842 = CARTESIAN_POINT('',(24.431653611426,2.56343270271));
 #2843 = VECTOR('',#2844,1.);
-#2844 = DIRECTION('',(-1.,-3.452289423905E-17));
+#2844 = DIRECTION('',(-1.,-3.452290085648E-17));
 #2845 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24002,7 +24722,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2869 = LINE('',#2870,#2871);
 #2870 = CARTESIAN_POINT('',(-3.905801965476,3.06343270271));
 #2871 = VECTOR('',#2872,1.);
-#2872 = DIRECTION('',(-3.308722450212E-24,-1.));
+#2872 = DIRECTION('',(3.308722450212E-24,-1.));
 #2873 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24011,7 +24731,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2876 = AXIS2_PLACEMENT_3D('',#2877,#2878,#2879);
 #2877 = CARTESIAN_POINT('',(-14.42426142566,-20.96643265516,401.35));
 #2878 = DIRECTION('',(-0.,-0.,-1.));
-#2879 = DIRECTION('',(-0.99952754881,3.073563354365E-02,0.));
+#2879 = DIRECTION('',(-0.99952754881,3.073563354366E-02,0.));
 #2880 = DEFINITIONAL_REPRESENTATION('',(#2881),#2885);
 #2881 = LINE('',#2882,#2883);
 #2882 = CARTESIAN_POINT('',(5.467046720074,0.));
@@ -24034,7 +24754,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2897 = LINE('',#2898,#2899);
 #2898 = CARTESIAN_POINT('',(-3.905801965476,3.06343270271));
 #2899 = VECTOR('',#2900,1.);
-#2900 = DIRECTION('',(-1.,1.580344663879E-15));
+#2900 = DIRECTION('',(-1.,1.58034465726E-15));
 #2901 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24061,7 +24781,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2920 = LINE('',#2921,#2922);
 #2921 = CARTESIAN_POINT('',(-24.30478820599,3.06343270271));
 #2922 = VECTOR('',#2923,1.);
-#2923 = DIRECTION('',(-3.308722450212E-24,-1.));
+#2923 = DIRECTION('',(3.308722450212E-24,-1.));
 #2924 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24091,7 +24811,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2946 = LINE('',#2947,#2948);
 #2947 = CARTESIAN_POINT('',(-3.905801965476,2.56343270271));
 #2948 = VECTOR('',#2949,1.);
-#2949 = DIRECTION('',(-1.,1.580344663879E-15));
+#2949 = DIRECTION('',(-1.,1.58034465726E-15));
 #2950 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24118,7 +24838,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2969 = LINE('',#2970,#2971);
 #2970 = CARTESIAN_POINT('',(24.431653611426,2.56343270271));
 #2971 = VECTOR('',#2972,1.);
-#2972 = DIRECTION('',(-3.308722450212E-24,-1.));
+#2972 = DIRECTION('',(3.308722450212E-24,-1.));
 #2973 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24149,7 +24869,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #2995 = LINE('',#2996,#2997);
 #2996 = CARTESIAN_POINT('',(25.745211230602,2.56343270271));
 #2997 = VECTOR('',#2998,1.);
-#2998 = DIRECTION('',(-1.,-1.649390457483E-15));
+#2998 = DIRECTION('',(-1.,-1.649390457482E-15));
 #2999 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24181,7 +24901,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3023 = LINE('',#3024,#3025);
 #3024 = CARTESIAN_POINT('',(24.431653611424,2.56343270271));
 #3025 = VECTOR('',#3026,1.);
-#3026 = DIRECTION('',(-1.,-3.452289441559E-17));
+#3026 = DIRECTION('',(-1.,-3.452289441557E-17));
 #3027 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24223,7 +24943,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3058 = AXIS2_PLACEMENT_3D('',#3059,#3060,#3061);
 #3059 = CARTESIAN_POINT('',(14.424261425665,20.966432655162,401.35));
 #3060 = DIRECTION('',(-0.,-0.,-1.));
-#3061 = DIRECTION('',(0.99952754881,-3.073563354365E-02,0.));
+#3061 = DIRECTION('',(0.99952754881,-3.073563354366E-02,0.));
 #3062 = DEFINITIONAL_REPRESENTATION('',(#3063),#3067);
 #3063 = LINE('',#3064,#3065);
 #3064 = CARTESIAN_POINT('',(5.467046720073,0.));
@@ -24246,7 +24966,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3079 = LINE('',#3080,#3081);
 #3080 = CARTESIAN_POINT('',(-3.905801965478,3.06343270271));
 #3081 = VECTOR('',#3082,1.);
-#3082 = DIRECTION('',(-1.,1.58034467196E-15));
+#3082 = DIRECTION('',(-1.,1.580344671959E-15));
 #3083 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24305,7 +25025,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3130 = LINE('',#3131,#3132);
 #3131 = CARTESIAN_POINT('',(-3.905801965478,2.56343270271));
 #3132 = VECTOR('',#3133,1.);
-#3133 = DIRECTION('',(-1.,1.58034467196E-15));
+#3133 = DIRECTION('',(-1.,1.580344671959E-15));
 #3134 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24363,7 +25083,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3179 = AXIS2_PLACEMENT_3D('',#3180,#3181,#3182);
 #3180 = CARTESIAN_POINT('',(-36.6229801563,0.,401.85));
 #3181 = DIRECTION('',(0.,0.,1.));
-#3182 = DIRECTION('',(-2.64418394691E-02,0.999650353436,0.));
+#3182 = DIRECTION('',(-2.644183946911E-02,0.999650353436,0.));
 #3183 = PCURVE('',#1311,#3184);
 #3184 = DEFINITIONAL_REPRESENTATION('',(#3185),#3189);
 #3185 = LINE('',#3186,#3187);
@@ -24382,14 +25102,14 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3195 = DIRECTION('',(-1.,0.,0.));
 #3196 = DEFINITIONAL_REPRESENTATION('',(#3197),#3205);
 #3197 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#3198,#3199,#3200,#3201,
-#3202,#3203,#3204),.UNSPECIFIED.,.T.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
+#3202,#3203,#3204),.UNSPECIFIED.,.F.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
     ,2,2,2,1),(-2.094395102393,0.,2.094395102393,4.188790204786,
 6.28318530718,8.377580409573),.UNSPECIFIED.) CURVE() 
 GEOMETRIC_REPRESENTATION_ITEM() RATIONAL_B_SPLINE_CURVE((1.,0.5,1.,0.5,
 1.,0.5,1.)) REPRESENTATION_ITEM('') );
 #3198 = CARTESIAN_POINT('',(36.706932999996,3.17389));
 #3199 = CARTESIAN_POINT('',(42.20427173763,3.028479409279));
-#3200 = CARTESIAN_POINT('',(39.329673103269,-1.65965029536));
+#3200 = CARTESIAN_POINT('',(39.329673103269,-1.659650295361));
 #3201 = CARTESIAN_POINT('',(36.455074468908,-6.34778));
 #3202 = CARTESIAN_POINT('',(33.832334365635,-1.514239704639));
 #3203 = CARTESIAN_POINT('',(31.209594262361,3.319300590721));
@@ -24420,7 +25140,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3224 = LINE('',#3225,#3226);
 #3225 = CARTESIAN_POINT('',(22.99123058682,-2.56343270271));
 #3226 = VECTOR('',#3227,1.);
-#3227 = DIRECTION('',(-3.308722450212E-24,1.));
+#3227 = DIRECTION('',(3.308722450212E-24,1.));
 #3228 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24436,7 +25156,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3238 = AXIS2_PLACEMENT_3D('',#3239,#3240,#3241);
 #3239 = CARTESIAN_POINT('',(0.,36.622980156304,401.85));
 #3240 = DIRECTION('',(0.,-0.,1.));
-#3241 = DIRECTION('',(0.999650353436,2.644183946911E-02,0.));
+#3241 = DIRECTION('',(0.999650353436,2.644183946912E-02,0.));
 #3242 = PCURVE('',#1372,#3243);
 #3243 = DEFINITIONAL_REPRESENTATION('',(#3244),#3248);
 #3244 = LINE('',#3245,#3246);
@@ -24485,7 +25205,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3276 = LINE('',#3277,#3278);
 #3277 = CARTESIAN_POINT('',(-24.43165361142,-2.56343270271));
 #3278 = VECTOR('',#3279,1.);
-#3279 = DIRECTION('',(-3.308722450212E-24,1.));
+#3279 = DIRECTION('',(3.308722450212E-24,1.));
 #3280 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24509,7 +25229,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3297 = LINE('',#3298,#3299);
 #3298 = CARTESIAN_POINT('',(-25.74521123059,-2.56343270271));
 #3299 = VECTOR('',#3300,1.);
-#3300 = DIRECTION('',(1.,1.649390464165E-15));
+#3300 = DIRECTION('',(1.,1.649390457547E-15));
 #3301 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24541,7 +25261,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3325 = LINE('',#3326,#3327);
 #3326 = CARTESIAN_POINT('',(-24.43165361142,-2.56343270271));
 #3327 = VECTOR('',#3328,1.);
-#3328 = DIRECTION('',(1.,3.452289779494E-17));
+#3328 = DIRECTION('',(1.,3.452289117747E-17));
 #3329 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24574,7 +25294,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3353 = LINE('',#3354,#3355);
 #3354 = CARTESIAN_POINT('',(3.905801965482,-3.06343270271));
 #3355 = VECTOR('',#3356,1.);
-#3356 = DIRECTION('',(-3.308722450212E-24,1.));
+#3356 = DIRECTION('',(3.308722450212E-24,1.));
 #3357 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24583,7 +25303,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3360 = AXIS2_PLACEMENT_3D('',#3361,#3362,#3363);
 #3361 = CARTESIAN_POINT('',(-20.96643265516,14.424261425665,401.35));
 #3362 = DIRECTION('',(-0.,-0.,-1.));
-#3363 = DIRECTION('',(3.073563354365E-02,0.99952754881,-0.));
+#3363 = DIRECTION('',(3.073563354366E-02,0.99952754881,-0.));
 #3364 = DEFINITIONAL_REPRESENTATION('',(#3365),#3369);
 #3365 = LINE('',#3366,#3367);
 #3366 = CARTESIAN_POINT('',(5.467046720072,0.));
@@ -24606,7 +25326,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3381 = LINE('',#3382,#3383);
 #3382 = CARTESIAN_POINT('',(3.905801965482,-3.06343270271));
 #3383 = VECTOR('',#3384,1.);
-#3384 = DIRECTION('',(1.,-1.580344671884E-15));
+#3384 = DIRECTION('',(1.,-1.580344678501E-15));
 #3385 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24633,7 +25353,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3404 = LINE('',#3405,#3406);
 #3405 = CARTESIAN_POINT('',(24.304788205998,-3.06343270271));
 #3406 = VECTOR('',#3407,1.);
-#3407 = DIRECTION('',(-3.308722450212E-24,1.));
+#3407 = DIRECTION('',(3.308722450212E-24,1.));
 #3408 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24663,7 +25383,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3430 = LINE('',#3431,#3432);
 #3431 = CARTESIAN_POINT('',(3.905801965482,-2.56343270271));
 #3432 = VECTOR('',#3433,1.);
-#3433 = DIRECTION('',(1.,-1.580344671884E-15));
+#3433 = DIRECTION('',(1.,-1.580344678501E-15));
 #3434 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24925,11 +25645,11 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3646 = AXIS2_PLACEMENT_3D('',#3647,#3648,#3649);
 #3647 = CARTESIAN_POINT('',(-14.42426142566,-20.96643265516,401.35));
 #3648 = DIRECTION('',(0.,0.,1.));
-#3649 = DIRECTION('',(-0.99952754881,3.073563354365E-02,0.));
+#3649 = DIRECTION('',(-0.99952754881,3.073563354366E-02,0.));
 #3650 = PCURVE('',#1808,#3651);
 #3651 = DEFINITIONAL_REPRESENTATION('',(#3652),#3660);
 #3652 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#3653,#3654,#3655,#3656,
-#3657,#3658,#3659),.UNSPECIFIED.,.T.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
+#3657,#3658,#3659),.UNSPECIFIED.,.F.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
     ,2,2,2,1),(-2.094395102393,0.,2.094395102393,4.188790204786,
 6.28318530718,8.377580409573),.UNSPECIFIED.) CURVE() 
 GEOMETRIC_REPRESENTATION_ITEM() RATIONAL_B_SPLINE_CURVE((1.,0.5,1.,0.5,
@@ -24962,13 +25682,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3674 = AXIS2_PLACEMENT_3D('',#3675,#3676,#3677);
 #3675 = CARTESIAN_POINT('',(-20.77126153902,-20.77126153902,401.35));
 #3676 = DIRECTION('',(0.,0.,-1.));
-#3677 = DIRECTION('',(-3.073558245644E-02,0.999527550381,0.));
+#3677 = DIRECTION('',(-3.073558245645E-02,0.999527550381,0.));
 #3678 = PCURVE('',#1808,#3679);
 #3679 = DEFINITIONAL_REPRESENTATION('',(#3680),#3684);
 #3680 = CIRCLE('',#3681,3.174999566364);
 #3681 = AXIS2_PLACEMENT_2D('',#3682,#3683);
 #3682 = CARTESIAN_POINT('',(20.373157466794,-20.77126153902));
-#3683 = DIRECTION('',(3.073558245644E-02,0.999527550381));
+#3683 = DIRECTION('',(3.073558245645E-02,0.999527550381));
 #3684 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -24977,7 +25697,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3687 = AXIS2_PLACEMENT_3D('',#3688,#3689,#3690);
 #3688 = CARTESIAN_POINT('',(-20.77126153902,-20.77126153902,401.35));
 #3689 = DIRECTION('',(0.,0.,-1.));
-#3690 = DIRECTION('',(-3.073558245644E-02,0.999527550381,0.));
+#3690 = DIRECTION('',(-3.073558245645E-02,0.999527550381,0.));
 #3691 = DEFINITIONAL_REPRESENTATION('',(#3692),#3696);
 #3692 = LINE('',#3693,#3694);
 #3693 = CARTESIAN_POINT('',(-8.881784197001E-16,0.));
@@ -25100,11 +25820,11 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3786 = AXIS2_PLACEMENT_3D('',#3787,#3788,#3789);
 #3787 = CARTESIAN_POINT('',(-20.96643265516,14.424261425665,401.35));
 #3788 = DIRECTION('',(0.,-0.,1.));
-#3789 = DIRECTION('',(3.073563354365E-02,0.99952754881,0.));
+#3789 = DIRECTION('',(3.073563354366E-02,0.99952754881,0.));
 #3790 = PCURVE('',#1808,#3791);
 #3791 = DEFINITIONAL_REPRESENTATION('',(#3792),#3800);
 #3792 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#3793,#3794,#3795,#3796,
-#3797,#3798,#3799),.UNSPECIFIED.,.T.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
+#3797,#3798,#3799),.UNSPECIFIED.,.F.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
     ,2,2,2,1),(-2.094395102393,0.,2.094395102393,4.188790204786,
 6.28318530718,8.377580409573),.UNSPECIFIED.) CURVE() 
 GEOMETRIC_REPRESENTATION_ITEM() RATIONAL_B_SPLINE_CURVE((1.,0.5,1.,0.5,
@@ -25137,13 +25857,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3814 = AXIS2_PLACEMENT_3D('',#3815,#3816,#3817);
 #3815 = CARTESIAN_POINT('',(-20.77126153902,20.771261539029,401.35));
 #3816 = DIRECTION('',(0.,0.,-1.));
-#3817 = DIRECTION('',(0.999527550381,3.073558245644E-02,0.));
+#3817 = DIRECTION('',(0.999527550381,3.073558245645E-02,0.));
 #3818 = PCURVE('',#1808,#3819);
 #3819 = DEFINITIONAL_REPRESENTATION('',(#3820),#3824);
 #3820 = CIRCLE('',#3821,3.174999566364);
 #3821 = AXIS2_PLACEMENT_2D('',#3822,#3823);
 #3822 = CARTESIAN_POINT('',(20.373157466794,20.771261539029));
-#3823 = DIRECTION('',(-0.999527550381,3.073558245644E-02));
+#3823 = DIRECTION('',(-0.999527550381,3.073558245645E-02));
 #3824 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -25152,7 +25872,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3827 = AXIS2_PLACEMENT_3D('',#3828,#3829,#3830);
 #3828 = CARTESIAN_POINT('',(-20.77126153902,20.771261539029,401.35));
 #3829 = DIRECTION('',(0.,0.,-1.));
-#3830 = DIRECTION('',(0.999527550381,3.073558245644E-02,0.));
+#3830 = DIRECTION('',(0.999527550381,3.073558245645E-02,0.));
 #3831 = DEFINITIONAL_REPRESENTATION('',(#3832),#3836);
 #3832 = LINE('',#3833,#3834);
 #3833 = CARTESIAN_POINT('',(0.,0.));
@@ -25275,7 +25995,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3926 = AXIS2_PLACEMENT_3D('',#3927,#3928,#3929);
 #3927 = CARTESIAN_POINT('',(14.424261425665,20.966432655162,401.35));
 #3928 = DIRECTION('',(-0.,0.,1.));
-#3929 = DIRECTION('',(0.99952754881,-3.073563354365E-02,0.));
+#3929 = DIRECTION('',(0.99952754881,-3.073563354366E-02,0.));
 #3930 = PCURVE('',#1808,#3931);
 #3931 = DEFINITIONAL_REPRESENTATION('',(#3932),#3940);
 #3932 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#3933,#3934,#3935,#3936,
@@ -25312,13 +26032,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3954 = AXIS2_PLACEMENT_3D('',#3955,#3956,#3957);
 #3955 = CARTESIAN_POINT('',(20.771261539029,20.771261539029,401.35));
 #3956 = DIRECTION('',(0.,0.,-1.));
-#3957 = DIRECTION('',(3.073558245644E-02,-0.999527550381,0.));
+#3957 = DIRECTION('',(3.073558245645E-02,-0.999527550381,0.));
 #3958 = PCURVE('',#1808,#3959);
 #3959 = DEFINITIONAL_REPRESENTATION('',(#3960),#3964);
 #3960 = CIRCLE('',#3961,3.174999566364);
 #3961 = AXIS2_PLACEMENT_2D('',#3962,#3963);
 #3962 = CARTESIAN_POINT('',(-21.16936561125,20.771261539029));
-#3963 = DIRECTION('',(-3.073558245644E-02,-0.999527550381));
+#3963 = DIRECTION('',(-3.073558245645E-02,-0.999527550381));
 #3964 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -25327,7 +26047,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #3967 = AXIS2_PLACEMENT_3D('',#3968,#3969,#3970);
 #3968 = CARTESIAN_POINT('',(20.771261539029,20.771261539029,401.35));
 #3969 = DIRECTION('',(0.,0.,-1.));
-#3970 = DIRECTION('',(3.073558245644E-02,-0.999527550381,0.));
+#3970 = DIRECTION('',(3.073558245645E-02,-0.999527550381,0.));
 #3971 = DEFINITIONAL_REPRESENTATION('',(#3972),#3976);
 #3972 = LINE('',#3973,#3974);
 #3973 = CARTESIAN_POINT('',(1.118965091031E-15,0.));
@@ -25450,11 +26170,11 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #4066 = AXIS2_PLACEMENT_3D('',#4067,#4068,#4069);
 #4067 = CARTESIAN_POINT('',(20.966432655162,-14.42426142566,401.35));
 #4068 = DIRECTION('',(0.,0.,1.));
-#4069 = DIRECTION('',(-3.073563354365E-02,-0.99952754881,0.));
+#4069 = DIRECTION('',(-3.073563354366E-02,-0.99952754881,0.));
 #4070 = PCURVE('',#1808,#4071);
 #4071 = DEFINITIONAL_REPRESENTATION('',(#4072),#4080);
 #4072 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#4073,#4074,#4075,#4076,
-#4077,#4078,#4079),.UNSPECIFIED.,.T.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
+#4077,#4078,#4079),.UNSPECIFIED.,.F.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
     ,2,2,2,1),(-2.094395102393,0.,2.094395102393,4.188790204786,
 6.28318530718,8.377580409573),.UNSPECIFIED.) CURVE() 
 GEOMETRIC_REPRESENTATION_ITEM() RATIONAL_B_SPLINE_CURVE((1.,0.5,1.,0.5,
@@ -25487,13 +26207,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #4094 = AXIS2_PLACEMENT_3D('',#4095,#4096,#4097);
 #4095 = CARTESIAN_POINT('',(20.771261539029,-20.77126153902,401.35));
 #4096 = DIRECTION('',(0.,0.,-1.));
-#4097 = DIRECTION('',(-0.999527550381,-3.073558245644E-02,-0.));
+#4097 = DIRECTION('',(-0.999527550381,-3.073558245645E-02,-0.));
 #4098 = PCURVE('',#1808,#4099);
 #4099 = DEFINITIONAL_REPRESENTATION('',(#4100),#4104);
 #4100 = CIRCLE('',#4101,3.174999566364);
 #4101 = AXIS2_PLACEMENT_2D('',#4102,#4103);
 #4102 = CARTESIAN_POINT('',(-21.16936561125,-20.77126153902));
-#4103 = DIRECTION('',(0.999527550381,-3.073558245644E-02));
+#4103 = DIRECTION('',(0.999527550381,-3.073558245645E-02));
 #4104 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -25502,7 +26222,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #4107 = AXIS2_PLACEMENT_3D('',#4108,#4109,#4110);
 #4108 = CARTESIAN_POINT('',(20.771261539029,-20.77126153902,401.35));
 #4109 = DIRECTION('',(-0.,-0.,-1.));
-#4110 = DIRECTION('',(-0.999527550381,-3.073558245644E-02,0.));
+#4110 = DIRECTION('',(-0.999527550381,-3.073558245645E-02,0.));
 #4111 = DEFINITIONAL_REPRESENTATION('',(#4112),#4116);
 #4112 = LINE('',#4113,#4114);
 #4113 = CARTESIAN_POINT('',(0.,0.));
@@ -25714,7 +26434,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #4283 = AXIS2_PLACEMENT_3D('',#4284,#4285,#4286);
 #4284 = CARTESIAN_POINT('',(20.966432655162,-14.42426142566,401.85));
 #4285 = DIRECTION('',(0.,0.,1.));
-#4286 = DIRECTION('',(-3.073563354365E-02,-0.99952754881,0.));
+#4286 = DIRECTION('',(-3.073563354366E-02,-0.99952754881,0.));
 #4287 = PCURVE('',#2523,#4288);
 #4288 = DEFINITIONAL_REPRESENTATION('',(#4289),#4297);
 #4289 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#4290,#4291,#4292,#4293,
@@ -25751,13 +26471,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #4311 = AXIS2_PLACEMENT_3D('',#4312,#4313,#4314);
 #4312 = CARTESIAN_POINT('',(20.771261539029,-20.77126153902,401.85));
 #4313 = DIRECTION('',(0.,0.,-1.));
-#4314 = DIRECTION('',(-0.999527550381,-3.073558245644E-02,-0.));
+#4314 = DIRECTION('',(-0.999527550381,-3.073558245645E-02,-0.));
 #4315 = PCURVE('',#2523,#4316);
 #4316 = DEFINITIONAL_REPRESENTATION('',(#4317),#4321);
 #4317 = CIRCLE('',#4318,3.174999566364);
 #4318 = AXIS2_PLACEMENT_2D('',#4319,#4320);
 #4319 = CARTESIAN_POINT('',(-20.77126153902,-20.77126153902));
-#4320 = DIRECTION('',(0.999527550381,-3.073558245644E-02));
+#4320 = DIRECTION('',(0.999527550381,-3.073558245645E-02));
 #4321 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -26107,7 +26827,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #4603 = AXIS2_PLACEMENT_3D('',#4604,#4605,#4606);
 #4604 = CARTESIAN_POINT('',(-14.42426142566,-20.96643265516,401.85));
 #4605 = DIRECTION('',(0.,0.,1.));
-#4606 = DIRECTION('',(-0.99952754881,3.073563354365E-02,0.));
+#4606 = DIRECTION('',(-0.99952754881,3.073563354366E-02,0.));
 #4607 = PCURVE('',#2847,#4608);
 #4608 = DEFINITIONAL_REPRESENTATION('',(#4609),#4617);
 #4609 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#4610,#4611,#4612,#4613,
@@ -26142,13 +26862,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #4629 = AXIS2_PLACEMENT_3D('',#4630,#4631,#4632);
 #4630 = CARTESIAN_POINT('',(-20.77126153902,-20.77126153902,401.85));
 #4631 = DIRECTION('',(0.,0.,-1.));
-#4632 = DIRECTION('',(-3.073558245644E-02,0.999527550381,0.));
+#4632 = DIRECTION('',(-3.073558245645E-02,0.999527550381,0.));
 #4633 = PCURVE('',#2847,#4634);
 #4634 = DEFINITIONAL_REPRESENTATION('',(#4635),#4639);
 #4635 = CIRCLE('',#4636,3.174999566364);
 #4636 = AXIS2_PLACEMENT_2D('',#4637,#4638);
 #4637 = CARTESIAN_POINT('',(20.77126153902,-20.77126153902));
-#4638 = DIRECTION('',(3.073558245644E-02,0.999527550381));
+#4638 = DIRECTION('',(3.073558245645E-02,0.999527550381));
 #4639 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -26244,11 +26964,11 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #4719 = AXIS2_PLACEMENT_3D('',#4720,#4721,#4722);
 #4720 = CARTESIAN_POINT('',(14.424261425665,20.966432655162,401.85));
 #4721 = DIRECTION('',(-0.,0.,1.));
-#4722 = DIRECTION('',(0.99952754881,-3.073563354365E-02,0.));
+#4722 = DIRECTION('',(0.99952754881,-3.073563354366E-02,0.));
 #4723 = PCURVE('',#3029,#4724);
 #4724 = DEFINITIONAL_REPRESENTATION('',(#4725),#4733);
 #4725 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#4726,#4727,#4728,#4729,
-#4730,#4731,#4732),.UNSPECIFIED.,.F.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
+#4730,#4731,#4732),.UNSPECIFIED.,.T.,.F.) B_SPLINE_CURVE_WITH_KNOTS((1,2
     ,2,2,2,1),(-2.094395102393,0.,2.094395102393,4.188790204786,
 6.28318530718,8.377580409573),.UNSPECIFIED.) CURVE() 
 GEOMETRIC_REPRESENTATION_ITEM() RATIONAL_B_SPLINE_CURVE((1.,0.5,1.,0.5,
@@ -26281,13 +27001,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #4747 = AXIS2_PLACEMENT_3D('',#4748,#4749,#4750);
 #4748 = CARTESIAN_POINT('',(20.771261539029,20.771261539029,401.85));
 #4749 = DIRECTION('',(0.,0.,-1.));
-#4750 = DIRECTION('',(3.073558245644E-02,-0.999527550381,0.));
+#4750 = DIRECTION('',(3.073558245645E-02,-0.999527550381,0.));
 #4751 = PCURVE('',#3029,#4752);
 #4752 = DEFINITIONAL_REPRESENTATION('',(#4753),#4757);
 #4753 = CIRCLE('',#4754,3.174999566364);
 #4754 = AXIS2_PLACEMENT_2D('',#4755,#4756);
 #4755 = CARTESIAN_POINT('',(-20.77126153902,20.771261539029));
-#4756 = DIRECTION('',(-3.073558245644E-02,-0.999527550381));
+#4756 = DIRECTION('',(-3.073558245645E-02,-0.999527550381));
 #4757 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
@@ -26587,7 +27307,7 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #4997 = AXIS2_PLACEMENT_3D('',#4998,#4999,#5000);
 #4998 = CARTESIAN_POINT('',(-20.96643265516,14.424261425665,401.85));
 #4999 = DIRECTION('',(0.,-0.,1.));
-#5000 = DIRECTION('',(3.073563354365E-02,0.99952754881,0.));
+#5000 = DIRECTION('',(3.073563354366E-02,0.99952754881,0.));
 #5001 = PCURVE('',#3331,#5002);
 #5002 = DEFINITIONAL_REPRESENTATION('',(#5003),#5011);
 #5003 = ( BOUNDED_CURVE() B_SPLINE_CURVE(2,(#5004,#5005,#5006,#5007,
@@ -26622,13 +27342,13 @@ PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
 #5023 = AXIS2_PLACEMENT_3D('',#5024,#5025,#5026);
 #5024 = CARTESIAN_POINT('',(-20.77126153902,20.771261539029,401.85));
 #5025 = DIRECTION('',(0.,0.,-1.));
-#5026 = DIRECTION('',(0.999527550381,3.073558245644E-02,0.));
+#5026 = DIRECTION('',(0.999527550381,3.073558245645E-02,0.));
 #5027 = PCURVE('',#3331,#5028);
 #5028 = DEFINITIONAL_REPRESENTATION('',(#5029),#5033);
 #5029 = CIRCLE('',#5030,3.174999566364);
 #5030 = AXIS2_PLACEMENT_2D('',#5031,#5032);
 #5031 = CARTESIAN_POINT('',(20.77126153902,20.771261539029));
-#5032 = DIRECTION('',(-0.999527550381,3.073558245644E-02));
+#5032 = DIRECTION('',(-0.999527550381,3.073558245645E-02));
 #5033 = ( GEOMETRIC_REPRESENTATION_CONTEXT(2) 
 PARAMETRIC_REPRESENTATION_CONTEXT() REPRESENTATION_CONTEXT('2D SPACE',''
   ) );
