@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:wheel_driver-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
@@ -506,4 +507,78 @@ $EndComp
 Connection ~ 6450 3400
 Wire Wire Line
 	6450 3400 6200 3400
+$Comp
+L Motor:Stepper_Motor_bipolar M1
+U 1 1 5BDB3F6A
+P 7800 1200
+F 0 "M1" H 7988 1324 50  0000 L CNN
+F 1 "Stepper_Motor_bipolar" H 7988 1233 50  0000 L CNN
+F 2 "" H 7810 1190 50  0001 C CNN
+F 3 "http://www.infineon.com/dgdl/Application-Note-TLE8110EE_driving_UniPolarStepperMotor_V1.1.pdf?fileId=db3a30431be39b97011be5d0aa0a00b0" H 7810 1190 50  0001 C CNN
+	1    7800 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Motor:Stepper_Motor_bipolar M2
+U 1 1 5BDB54BA
+P 7800 5300
+F 0 "M2" H 7988 5424 50  0000 L CNN
+F 1 "Stepper_Motor_bipolar" H 7988 5333 50  0000 L CNN
+F 2 "" H 7810 5290 50  0001 C CNN
+F 3 "http://www.infineon.com/dgdl/Application-Note-TLE8110EE_driving_UniPolarStepperMotor_V1.1.pdf?fileId=db3a30431be39b97011be5d0aa0a00b0" H 7810 5290 50  0001 C CNN
+	1    7800 5300
+	1    0    0    -1  
+$EndComp
+Text Notes 7550 5700 0    50   ~ 0
+MASK WHEEL MOTOR
+Text Notes 7400 1500 0    50   ~ 0
+SAMPLE WHEEL MOTOR
+Text Label 5300 1300 1    50   ~ 0
+SW_2B
+Text Label 5200 1300 1    50   ~ 0
+SW_2A
+Text Label 5100 1300 1    50   ~ 0
+SW_1A
+Text Label 5000 1300 1    50   ~ 0
+SW_1B
+Text Label 7500 1300 2    50   ~ 0
+SW_2B
+Text Label 7500 1100 2    50   ~ 0
+SW_2A
+Text Label 7700 900  1    50   ~ 0
+SW_1B
+Text Label 7900 900  1    50   ~ 0
+SW_1A
+Wire Notes Line
+	7100 600  8850 600 
+Wire Notes Line
+	8850 600  8850 1400
+Wire Notes Line
+	8850 1400 7100 1400
+Wire Notes Line
+	7100 1400 7100 600 
+Text Label 5100 5550 1    50   ~ 0
+MW_1B
+Text Label 5200 5550 1    50   ~ 0
+MW_1A
+Text Label 5300 5550 1    50   ~ 0
+MW_2A
+Text Label 5400 5550 1    50   ~ 0
+MW_2B
+Text Label 7700 5000 1    50   ~ 0
+MW_1B
+Text Label 7900 5000 1    50   ~ 0
+MW_1A
+Text Label 7500 5200 2    50   ~ 0
+MW_2A
+Text Label 7500 5400 2    50   ~ 0
+MW_2B
+Wire Notes Line
+	7200 5600 7200 4700
+Wire Notes Line
+	7200 4700 8950 4700
+Wire Notes Line
+	8950 4700 8950 5600
+Wire Notes Line
+	8950 5600 7200 5600
 $EndSCHEMATC
