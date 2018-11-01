@@ -6,4 +6,4 @@ The electrical schematic for the driver of the sample and mask wheels is
 
 The stepper motor driver boards are from pololu.com, [product number 2971](https://www.pololu.com/product/2971): "DRV8880 Stepper Motor Driver Carrier"
 
-Bipolar stepper motors must be used (currently VSS25.200.1.2-UHVG by Phytron). They must be wired so that the two phases of each motor are connected on neigboring screw terminals (as shown in the schematic below).
+Bipolar stepper motors must be used (currently VSS25.200.1.2-UHVG by Phytron). They must be wired so that the two phases of each motor are connected on neighboring screw terminals (as shown in the schematic above).
