@@ -1,5 +1,5 @@
 # Wheel Driver Electronics
-Connections to the board and controls for turning the wheels look like ![this](/sample_and_mask_wheels/images/board_connections.jpg)
+Connections to the driver board and controls for turning the wheels look like ![this](/sample_and_mask_wheels/images/board_connections.jpg)
 
 The electrical schematic for the driver of the sample and mask wheels is
 [![here](/sample_and_mask_wheels/kicad/wheel_driver/wheel_driver.svg)](https://github.com/AFMD/b40/raw/master/sample_and_mask_wheels/kicad/wheel_driver/wheel_driver.pdf)
