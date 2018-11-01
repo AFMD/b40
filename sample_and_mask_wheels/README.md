@@ -1,4 +1,4 @@
-# Wheel Driver Electronics
+# Wheel Driving System Description
 Connections to the driver board and controls for turning the wheels look like ![this](/sample_and_mask_wheels/images/board_connections.jpg)
 
 The electrical schematic for the driver of the sample and mask wheels is
@@ -6,4 +6,4 @@ The electrical schematic for the driver of the sample and mask wheels is
 
 The stepper motor driver boards are from pololu.com, [product number 2971](https://www.pololu.com/product/2971): "DRV8880 Stepper Motor Driver Carrier"
 
-Bipolar stepper motors must be used (currently VSS25.200.1.2-UHVG by Phytron). They must be wired so that the two phases of each motor are connected on neighboring screw terminals (as shown in the schematic above).
+Bipolar stepper motors must be used (currently VSS25.200.1.2-UHVG by Phytron). They must be wired so that the two phases of each motor are connected on neighboring screw terminals (as shown in the schematic above). These are 200 step per revolution motors. The pololu motor driver boards are left in their default configuration, 1/8 microstepping mode, so the firmware must deliver 1600 pulses on the step pin for one revoution.
