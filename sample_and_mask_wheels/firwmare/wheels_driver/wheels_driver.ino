@@ -1,21 +1,57 @@
 // written by grey@christoforo.net
+
+// Developed with Reactive State Machine Framework for Arduino
+// https://github.com/tinkerspy/Automaton
 #include <Automaton.h>
 
-#define USE_SERIAL_COMMS
+// for debugging over USB serial interface
+//#define USE_SERIAL_COMMS
 
+// "buttons objects" for the sample wheel BCD
 Atm_button button1;
 Atm_button button2;
 
+// "button objects" for the mask wheel sliding switch
 Atm_button button3;
 Atm_button button4;
 Atm_button button5;
 Atm_button button6;
 
+// timers
 Atm_timer timer;
 Atm_timer timer1;
 
+// "led objects" for the actual LED and for the two motor step pins
 Atm_led led1;
 Atm_led led2;
+Atm_led sw_step;
+Atm_led mw_step;
+
+// pin definitions
+// for sample wheel
+const byte SW_nSLEEP = 2;
+const byte SW_STEP = 0;
+const byte SW_DIR = 6;
+
+// for mask wheel
+const byte MW_nSLEEP = 3;
+const byte MW_STEP = 1;
+const byte MW_DIR = 7;
+
+// for inputs
+// mask wheel control pins connected to the slider switch
+const byte MW_SLIDE_1 = A1;
+const byte MW_SLIDE_2 = A2;
+const byte MW_SLIDE_3 = 8;
+const byte MW_SLIDE_4 = 9;
+
+// sample wheel control pins connected to the rotary BCD
+const byte SW_ROT_1 = 4;
+const byte SW_ROT_2 = 5;
+
+//number of steps to move one slot
+const unsigned int STEPS_PER_SLOT = 200 * 8 / 4; // 200 steps/rev, 8x microstepping, 1/4th of a turn
+const unsigned int STEP_SPEED = 100; //freq for steps
 
 // wait this many ms before handling an input change
 const unsigned long int INPUT_DELAY = 5000;
@@ -54,23 +90,16 @@ void handle_ui_event( int idx, int v, int up ) {
   sample_movement = workout_movement(new_sample_wheel_position, current_sample_wheel_position);
   mask_movement = workout_movement(new_mask_wheel_position, current_mask_wheel_position);
 
-  //move sample wheel
-  move_wheel(1,sample_movement);
-
-  //move sample wheel
-  move_wheel(2,mask_movement);
+  //move the wheels
+  move_wheels(sample_movement,mask_movement);
 
   //record the new wheel positions
   current_sample_wheel_position = new_sample_wheel_position;
   current_mask_wheel_position = new_mask_wheel_position;
-
-  if ( !motors_asleep ){
-    led1.trigger( led1.EVT_BLINK );
-  }
 }
 
 
-// gets called INPUT_DELAY ms after the last input change
+// gets called immediately when any button state changes
 void handle_button( int idx, int v, int up ) {
   if ( !motors_asleep && !ignore_events){
     led1.trigger( led1.EVT_ON );
@@ -78,206 +107,21 @@ void handle_button( int idx, int v, int up ) {
   }
 }
 
-//void button_change( int idx, int v, int up ) {
-//  printStates();
-//  //if ( v == 1 ) {
-//    //printStates();
-//  //}
-//}
-
-
-
-// pin definitions
-// for sample wheel
-const byte SW_nSLEEP = 2;
-const byte SW_STEP = 0;
-const byte SW_DIR = 6;
-
-// for mask wheel
-const byte MW_nSLEEP = 3;
-const byte MW_STEP = 1;
-const byte MW_DIR = 7;
-
-// for inputs
-// mask wheel control pins connected to the slider switch
-const byte MW_SLIDE_1 = A1;
-const byte MW_SLIDE_2 = A2;
-const byte MW_SLIDE_3 = 8;
-const byte MW_SLIDE_4 = 9;
-
-// sample wheel control pins connected to the rotary switch
-const byte SW_ROT_1 = 4;
-const byte SW_ROT_2 = 5;
-
-void setup() {
-  // setup led
-  led1.begin( LED_BUILTIN );
-  led1.blink( 40 );
-  led1.pause( 500 );
-  led2.begin( LED_BUILTIN );
-  led2.blink( 40 );
-  led2.pause( 100 );
-  
-  // initialize the motor pins
-  digitalWrite(SW_nSLEEP, LOW);
-  digitalWrite(SW_STEP, LOW);
-  digitalWrite(SW_DIR, LOW);
-
-  digitalWrite(MW_nSLEEP, LOW);
-  digitalWrite(MW_STEP, LOW);
-  digitalWrite(MW_DIR, LOW);
-
-  //digitalWrite(SW_nSLEEP, HIGH); //HIGH enables the motor
-  //digitalWrite(MW_nSLEEP, HIGH); //HIGH enables the motor
-  
-  pinMode(SW_nSLEEP, OUTPUT);
-  pinMode(SW_STEP, OUTPUT);
-  pinMode(SW_DIR, OUTPUT);
-
-  pinMode(MW_nSLEEP, OUTPUT);
-  pinMode(MW_STEP, OUTPUT);
-  pinMode(MW_DIR, OUTPUT);
-
-  // setup the input delay timer
-  timer.begin( INPUT_DELAY )
-    .onTimer( handle_ui_event );
-
-  // setup the boot up button un-ignorer timer
-  timer1.begin ( 100 )
-    .onTimer( enable_inputs );
-
-  // setup input pins
-  button1.begin( SW_ROT_1 );
-  pinMode( SW_ROT_2, INPUT_PULLUP);
-  button2.begin( MW_SLIDE_1 );
-  button3.begin( MW_SLIDE_2 );
-  button4.begin( MW_SLIDE_3 );
-  button5.begin( MW_SLIDE_4 );
-
-  #ifdef USE_SERIAL_COMMS
-  Serial.begin(115200);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  }
-  #endif
-
-  bool states[6] = {false};
-  readStates(states);
-  printStates(states);
-
-  #ifdef USE_SERIAL_COMMS
-  // send an intro:
-  Serial.println("\n\nReady for action.\n");
-  Serial.println();
-  #endif
-
-  // assume the wheels are wherever the switches say they are on boot up
-  current_sample_wheel_position = get_desired_sample_wheel_position(states);
-  current_mask_wheel_position = get_desired_mask_wheel_position(states);
-
+// returns led blinking to default state
+void revert_blink ( int idx, int v, int up ) {
   if ( !motors_asleep ){
     led1.trigger( led1.EVT_BLINK );
-    
-    // register button events
-    button1.onPress( handle_button );
-    button2.onPress( handle_button );
-    button3.onPress( handle_button );
-    button4.onPress( handle_button );
-    button5.onPress( handle_button );
-    button1.onRelease( handle_button );
-    button2.onRelease( handle_button );
-    button3.onRelease( handle_button );
-    button4.onRelease( handle_button );
-    button5.onRelease( handle_button );
-  
-    digitalWrite(SW_nSLEEP, HIGH); //HIGH enables the motor
-    digitalWrite(MW_nSLEEP, HIGH); //HIGH enables the motor
   }
-  // wait 100ms after boot to enable input events so we don't act on the initial button conditions
-  timer1.trigger( timer.EVT_START );
 }
 
-// checks for valid switch positions and puts the motors to sleep if the switches dictate so
+// puts the motors to sleep
 void go_to_sleep(){
   digitalWrite(SW_nSLEEP, LOW); //HIGH enables the motor
   digitalWrite(MW_nSLEEP, LOW); //HIGH enables the motor
   led1.trigger( led1.EVT_OFF );
-  led2.trigger( led2.EVT_BLINK );
+  led2.trigger( led2.EVT_BLINK ); // blink amber LED very fast
   motors_asleep = true;
 }
-
-//volatile unsigned long last_change_time = 0; // last time we got an interrupt change
-//const unsigned long ACTION_DELAY = 3000; //delay between input change and action ms
-
-
-// some global variables/constants
-//volatile bool do_steps=false;
-//const int STEP_DELAY_US = 5000; //micro second step delay
-
-//const unsigned int STEP_RATE = 100; //step rate in Hz
-//const unsigned int STEP_DURATION = 1000; //step duration in ms
-
-
-// ISR flags
-//volatile bool ISR_FLAG_input_changed = false; //gets set Serial.println(true by an ISR whenever a button or switch changes state
-//volatile bool ISR_FLAG_rot_change = false; // flag for sample wheel rotary switch value change
-//volatile bool ISR_FLAG_slide_change = false; // flag for mask wheel slide switch value change
-
-void loop() {
-  automaton.run();
-//  char tool[22];
-//
-//  if (ISR_FLAG_input_changed){
-//    chill_out();
-//    int new_sample_input = get_desired_sample_wheel_position();
-//    int new_mask_input = get_desired_mask_wheel_position();
-//
-//    if ((new_sample_input != -1) && (new_mask_input != -1)){
-//      ;
-//    }
-//  }
-
-//  if (Serial.available()) {      // If anything comes in Serial (USB),
-//    Serial.readBytes(tool,Serial.available());
-//    printStates();
-//  }
-
-
-
-  //run_motors();
-}
-
-//void chill_out(){
-//  delay (ACTION_DELAY+10);
-//  while (true){
-//    if (millis() - last_change_time > ACTION_DELAY){
-//      break;
-//    } else {
-//      delay (ACTION_DELAY);
-//    }
-//  }
-//}
-
-//void handle_input_change(){
-//  if (debounced()){
-//    if ((digitalRead(SW_ROT_1) == HIGH) && (digitalRead(SW_ROT_2) == HIGH)){
-//      run_motors();
-//    }
-//    
-//  }
-//if ((digitalRead(SW_ROT_1) == HIGH) && (digitalRead(SW_ROT_2) == HIGH)){
-//  //run_motors();
-//  }
-  //Serial.println(String("SW_ROT_1= ") + String(digitalRead(SW_ROT_1)));
-  //Serial.println(String("SW_ROT_2= ") + String(digitalRead(SW_ROT_2)));
-  //Serial.println();
-//  ISR_FLAG_input_changed = false;
-//}
-
-//void handle_slide_change(){
-//  printStates();
-//  ISR_FLAG_slide_change = false;
-//}
 
 // returns -1, 1, 2, 3 or 4
 // based on rotary switch position
@@ -344,6 +188,7 @@ int get_desired_mask_wheel_position(bool states[6]){
   return(desired);
 }
 
+//reads the hardware switch states and returns them in an array of booleans
 bool* readStates(bool states[6]){
   states[0] = digitalRead(SW_ROT_1);
   states[1] = digitalRead(SW_ROT_2);
@@ -353,6 +198,7 @@ bool* readStates(bool states[6]){
   states[5] = digitalRead(MW_SLIDE_4);
 }
 
+// write the switch sates to the serial console for debugging
 void printStates(bool states[6]){
   #ifdef USE_SERIAL_COMMS
   Serial.println(String("\nSW_ROT_1= ") + String(states[0]) + String("\nSW_ROT_2= ") + String(states[1]) + String("\nMW_SLIDE_1= ") + String(states[2]) + String("\nMW_SLIDE_2= ") + String(states[3]) + String("\nMW_SLIDE_3= ") + String(states[4]) + String("\nMW_SLIDE_4= ") + String(states[5]) + String("\n"));
@@ -376,79 +222,132 @@ int workout_movement(int new_position, int old_position) {
   return(result);
 }
 
-//ISR routines
-//void ISR_input_change() {
-// ISR_FLAG_input_changed = true;
-//  last_change_time = millis();
-//}
-
-//void run_motors(){
-//  tone(SW_STEP, STEP_RATE, STEP_DURATION);
-//  tone(MW_STEP, STEP_RATE, STEP_DURATION);
-//}
-
-//bool debounced(){
-//  bool ret = false;
-//  static unsigned long last_interrupt_time = 0;
-//  
-//  unsigned long interrupt_time = millis();
-//  // If interrupts come faster than DEBOUNCE_MS, assume it's a bounce and ignore
-//  if (interrupt_time - last_interrupt_time > DEBOUNCE_MS){
-//    ret = true;
-//   }
-//   last_interrupt_time = interrupt_time;
-//   return (ret);
-//}
-
-// moves a wheel
-// the first argument should be 1 or 2 for sample or mask wheel respsectively
-// the second argument is the number of slots to move (can be -1, 0, 1 or 2)
-void move_wheel(int wheel, int movement){
-  int step_pin = 0;
-  int dir_pin = 0;
-  if (wheel == 1){
-    #ifdef USE_SERIAL_COMMS
-    Serial.print("Moving sample wheel ");
-    #endif
-  } else if (wheel == 2){
-    #ifdef USE_SERIAL_COMMS
-    Serial.print("Moving mask wheel ");
-    #endif
-  }
-
-  if (movement < 0){
-    #ifdef USE_SERIAL_COMMS
-    Serial.print("backwards ");
-    #endif
+// moves the wheels
+// the arguments specify the number of slots each wheel should move (can be -1, 0, 1 or 2)
+void move_wheels(int SW_movement, int MW_movement){
+  // choose if we're going forwards or backwards
+  if ( SW_movement < 0 ){
+    digitalWrite(SW_DIR, LOW);
   } else {
-    #ifdef USE_SERIAL_COMMS
-    Serial.print("forwards ");
-    #endif
+    digitalWrite(SW_DIR, HIGH);
   }
 
-  #ifdef USE_SERIAL_COMMS
-  Serial.println(String("by ") + String(abs(movement)) + String(" slots."));
-  #endif
-  
+  if ( MW_movement < 0 ){
+    digitalWrite(MW_DIR, LOW);
+  } else {
+    digitalWrite(MW_DIR, HIGH);
+  }
+
+  // program the number of steps we'll take
+  sw_step.repeat(STEPS_PER_SLOT*abs(SW_movement));
+  mw_step.repeat(STEPS_PER_SLOT*abs(MW_movement));
+
+  // start sample wheel movement (if there is any), mask wheel movement will fillow (if there is any)
+  led1.trigger( led1.EVT_OFF );
+  sw_step.start();
 }
 
+// runs once on boot
+void setup() {
+  // setup led
+  led1.begin( LED_BUILTIN );
+  led1.blink( 40 );
+  led1.pause( 500 );
+  led2.begin( LED_BUILTIN );
+  led2.blink( 40 );
+  led2.pause( 100 );
 
-/*
- * 
- * 
- * 
- * 
+  // setup led-like objects for sample and mask wheel step pins
+  sw_step.begin ( SW_STEP );
+  sw_step.frequency(STEP_SPEED);
+  sw_step.pwm(512);
+  sw_step.onFinish(mw_step, mw_step.EVT_START); // once the sample wheel movement is done, do the mask wheel movement
 
-   */
+  mw_step.begin ( MW_STEP );
+  mw_step.frequency(STEP_SPEED);
+  mw_step.pwm(512);
+  mw_step.onFinish(revert_blink); // when the mask wheel is done turning, return the amber LED to its default state
+  
+  // initialize the motor pins
+  digitalWrite(SW_nSLEEP, LOW);
+  //digitalWrite(SW_STEP, LOW);
+  digitalWrite(SW_DIR, LOW);
 
+  digitalWrite(MW_nSLEEP, LOW);
+  //digitalWrite(MW_STEP, LOW);
+  digitalWrite(MW_DIR, LOW);
 
-//  if(do_steps){
-//    digitalWrite(SW_STEP, HIGH);
-//    digitalWrite(MW_STEP, HIGH);
-//    digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-//    delayMicroseconds(STEP_DELAY_US);                       // wait
-//    digitalWrite(SW_STEP, LOW);
-//    digitalWrite(MW_STEP, LOW);
-//    digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-//    delayMicroseconds(STEP_DELAY_US);                       // wait
-//  }
+  //digitalWrite(SW_nSLEEP, HIGH); //HIGH enables the motor
+  //digitalWrite(MW_nSLEEP, HIGH); //HIGH enables the motor
+  
+  pinMode(SW_nSLEEP, OUTPUT);
+  //pinMode(SW_STEP, OUTPUT);
+  pinMode(SW_DIR, OUTPUT);
+
+  pinMode(MW_nSLEEP, OUTPUT);
+  //pinMode(MW_STEP, OUTPUT);
+  pinMode(MW_DIR, OUTPUT);
+
+  // setup the input delay timer
+  timer.begin( INPUT_DELAY )
+    .onTimer( handle_ui_event );
+
+  // setup the boot up button un-ignorer timer
+  timer1.begin ( 100 )
+    .onTimer( enable_inputs );
+
+  // setup input pins
+  button1.begin( SW_ROT_1 );
+  pinMode( SW_ROT_2, INPUT_PULLUP);
+  button2.begin( MW_SLIDE_1 );
+  button3.begin( MW_SLIDE_2 );
+  button4.begin( MW_SLIDE_3 );
+  button5.begin( MW_SLIDE_4 );
+
+  #ifdef USE_SERIAL_COMMS
+  Serial.begin(115200);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+  #endif
+
+  bool states[6] = {false};
+  readStates(states);
+  printStates(states);
+
+  #ifdef USE_SERIAL_COMMS
+  // send an intro:
+  Serial.println("\n\nReady for action.\n");
+  Serial.println();
+  #endif
+
+  // assume the wheels are wherever the switches say they are on boot up
+  current_sample_wheel_position = get_desired_sample_wheel_position(states);
+  current_mask_wheel_position = get_desired_mask_wheel_position(states);
+
+  if ( !motors_asleep ){
+    led1.trigger( led1.EVT_BLINK );
+    
+    // register button events
+    button1.onPress( handle_button );
+    button2.onPress( handle_button );
+    button3.onPress( handle_button );
+    button4.onPress( handle_button );
+    button5.onPress( handle_button );
+    button1.onRelease( handle_button );
+    button2.onRelease( handle_button );
+    button3.onRelease( handle_button );
+    button4.onRelease( handle_button );
+    button5.onRelease( handle_button );
+  
+    digitalWrite(SW_nSLEEP, HIGH); //HIGH enables the motor
+    digitalWrite(MW_nSLEEP, HIGH); //HIGH enables the motor
+  }
+  // wait 100ms after boot to enable input events so we don't act on the initial button conditions
+  timer1.trigger( timer.EVT_START );
+}
+
+//main loop
+void loop() {
+  automaton.run();
+}
