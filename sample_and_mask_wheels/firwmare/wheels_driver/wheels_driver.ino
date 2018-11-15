@@ -244,7 +244,7 @@ void move_wheels(int SW_movement, int MW_movement){
   mw_step.repeat(STEPS_PER_SLOT*abs(MW_movement));
 
   // start sample wheel movement (if there is any), mask wheel movement will fillow (if there is any)
-  led1.trigger( led1.EVT_OFF );
+  //led1.trigger( led1.EVT_OFF );
   sw_step.start();
 }
 
