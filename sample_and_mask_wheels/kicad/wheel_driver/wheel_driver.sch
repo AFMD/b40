@@ -167,7 +167,7 @@ F 3 "~" H 6850 3400 50  0001 C CNN
 	1    0    0    1   
 $EndComp
 Text Notes 7850 2950 2    50   ~ 0
-MOTOR POWER INPUT (+44V)
+MOTOR POWER INPUT (+12V)
 NoConn ~ 6650 3200
 NoConn ~ 6650 3500
 $Comp
@@ -201,7 +201,7 @@ Wire Wire Line
 Wire Wire Line
 	6200 3400 6200 3450
 Text Label 6200 3400 0    50   ~ 0
-+44V
++12V
 Wire Notes Line
 	3000 6000 3000 7000
 Wire Notes Line
@@ -380,14 +380,10 @@ Text GLabel 5100 2200 3    50   Input ~ 0
 SW_STEP
 NoConn ~ 5000 2200
 NoConn ~ 4700 2200
-NoConn ~ 5400 2200
 NoConn ~ 5500 2200
 NoConn ~ 5600 2200
-NoConn ~ 6000 4750
-NoConn ~ 4400 1800
 NoConn ~ 4800 4350
 NoConn ~ 4900 4350
-NoConn ~ 5000 4350
 NoConn ~ 5400 4350
 NoConn ~ 5700 4350
 $Comp
@@ -581,4 +577,20 @@ Wire Notes Line
 	8950 4700 8950 5600
 Wire Notes Line
 	8950 5600 7200 5600
+Wire Wire Line
+	6000 4750 6000 3800
+Wire Wire Line
+	6000 3800 5000 3800
+Wire Wire Line
+	5000 3800 5000 4350
+Wire Wire Line
+	5400 2200 5400 2750
+Wire Wire Line
+	5400 2750 4400 2750
+Wire Wire Line
+	4400 2750 4400 1800
+Text Label 4400 2000 1    50   ~ 0
+V3P3
+Text Label 6000 4650 1    50   ~ 0
+V3P3
 $EndSCHEMATC
