@@ -44,8 +44,12 @@ The sample wheel positions should be marked 0-3 and the mask wheel positions sho
 
 ## FAQ
 __Q.__ What do I do if the wheels aren't moving and the amber LED is blinking very fast?  
-__A.__ Manually move the sample wheel to position 0. Manually move the mask wheel to position 1. Twist the sample selector on the control PCB to position 0. Move the mask wheel slider switch to position 1. Push the reset button on the Arduino on the control PCB. The amber LED should now be blinking slowly and the system should be ready for use.
+__A.__ Manually move the sample wheel to position 0. Manually move the mask wheel to position 1. Twist the sample selector on the control PCB to position 0. Move the mask wheel slider switch to position 1. Push the reset button on the Arduino on the control PCB. The amber LED should now be blinking slowly and the system should be ready for use.  
+
+
 __Q.__ How do I power it down?  
-__A.__ Move the mask wheel slider switch to position 8 and wait for the amber LED to start blinking very fast. Power off the 12V motor power supply. Remove power from the Arduino board by unplugging its USB cable. Failure to power down in the correct way could cause damage to the system.
+__A.__ Move the mask wheel slider switch to position 8 and wait for the amber LED to start blinking very fast. Power off the 12V motor power supply. Remove power from the Arduino board by unplugging its USB cable. Failure to power down in the correct way could cause damage to the system.  
+
+
 __Q.__ How do I power it up?  
 __A.__ Make sure the mask wheel slider switch is in position 8. Apply USB power to the Arduino. The amber LED should start blinking very fast. Power on the 12V motor power supply, it should now be supplying ~1mA. Move the sample wheel control dial to match the position the sample wheel is in. Move the mask wheel control slider switch to match the position the mask wheel is in. Push the reset button on the Arduino. The 12V power supply should now be providing ~475mA and the amber LED should be blinking slowly. The system is now ready for use. Failure to power down in the correct way could cause damage to the system.
