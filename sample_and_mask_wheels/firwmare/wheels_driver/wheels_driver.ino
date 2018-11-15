@@ -50,8 +50,9 @@ const byte SW_ROT_1 = 4;
 const byte SW_ROT_2 = 5;
 
 //number of steps to move one slot
-const unsigned int STEPS_PER_SLOT = 200 * 8 / 4; // 200 steps/rev, 8x microstepping, 1/4th of a turn
+const unsigned int STEPS_PER_SLOT = 200 * 16 / 4; // 200 steps/rev, 8x microstepping, 1/4th of a turn
 const unsigned int STEP_SPEED = 100; //freq for steps
+const unsigned int STEP_DUTY = 50; //percent duty cycle for step signal
 
 // wait this many ms before handling an input change
 const unsigned long int INPUT_DELAY = 5000;
@@ -260,12 +261,12 @@ void setup() {
   // setup led-like objects for sample and mask wheel step pins
   sw_step.begin ( SW_STEP );
   sw_step.frequency(STEP_SPEED);
-  sw_step.pwm(512);
+  sw_step.pwm((int) 1024*STEP_DUTY/100);
   sw_step.onFinish(mw_step, mw_step.EVT_START); // once the sample wheel movement is done, do the mask wheel movement
 
   mw_step.begin ( MW_STEP );
   mw_step.frequency(STEP_SPEED);
-  mw_step.pwm(512);
+  mw_step.pwm((int) 1024*STEP_DUTY/100);
   mw_step.onFinish(revert_blink); // when the mask wheel is done turning, return the amber LED to its default state
   
   // initialize the motor pins
