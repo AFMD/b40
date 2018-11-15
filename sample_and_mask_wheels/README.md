@@ -44,7 +44,7 @@ The sample wheel positions should be marked 0-3 and the mask wheel positions sho
 
 ## FAQ
 __Q.__ What do I do if the wheels aren't moving and the amber LED is blinking very fast?  
-__A.__ Manually move the sample wheel to position 0. Manually move the mask wheel to position 1. Twist the sample selector on the control PCB to position 0. Move the mask wheel slider switch to position 1. Push the reset button on the Arduino on the control PCB. The amber LED should now be blinking slowly and the system should be ready for use.  
+__A.__ Move the sample wheels by hand and/or the mask slider switch and sample dial so that the wheels' physical positions agree with the switch and dial. Push the reset button on the Arduino on the control PCB. The amber LED should now be blinking slowly and the system is ready for use.  
 
 
 __Q.__ How do I power it down?  
