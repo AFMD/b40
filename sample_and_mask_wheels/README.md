@@ -24,13 +24,13 @@ The sample wheel positions should be marked 0-3 and the mask wheel positions sho
 * __The firmware only reads the slider and dial positions 5 seconds after the user has stopped changing them__ That means you can make as many changes to the sample wheel dial and mask wheel slider as you like but only the positions they're in 5 seconds after you've stopped moving them matters. That means, as long as you don't make a 5 second pause, you have as much time as you need to get your input selection right.
 
 ## Hardware setup instructions
-1. Begin by wiring the motors to the controller board. Connect mask and sample wheel motors to the terminals as shown in the above diagram. The two phases of each motor must be connected on neighboring screw terminals. 
-1. Move the mask wheel selector to the zero position and the sample wheel selector to the 8 position.
+1. Begin by wiring the motors to the controller board. Connect mask and sample wheel motors to the terminals as shown in the above diagram. The two phases of each motor must be connected on neighboring screw terminals (this can be checked with an ohm meter; there should be ~2-3 ohm between the two motor connection screws 1 and 2 as well as between 3 and 4, and over half a mega ohm between 2 and 3. If this is not the case, the motor is either damaged or wired incorrectly).
+1. Move the sample wheel selector to the zero position and the mask wheel slider to the 8 position.
 1. Apply USB power to the Arduino module. The amber LED should now be blinking very fast.
-1. Wire up the +12V motor power supply to the terminals as shown in the above diagram and turn it on.
-1. By hand, rotate the wheels so that the sample wheel has slot 0 exactly over the evaporation window and the mask wheel has slot 1 exactly over the window.
+1. Wire up the +12V motor power supply to the terminals as shown in the above diagram and turn it on. It should be supplying approximately 1 mA at this point.
+1. By hand, rotate the wheels (or adjust their setscrews) so that the sample wheel has slot 0 exactly over the evaporation window and the mask wheel has slot 1 exactly over the window.
 1. Move the mask wheel slider switch to position 1.
-1. Push the reset button. The wheel motors will now receive power and they'll be locked in position in agreement with the switch and dial. The amber LED should blink slowly. The system is now ready to use.
+1. Push the reset button. The wheel motors will now receive power and they'll be locked in position in agreement with the slide switch and dial. The amber LED should blink slowly. The system is now ready to use and the 12V power supply should be delivering about 475mA.
 
 ## Usage
 * Use a little flat head screwdriver to interact with the mask slider switch and the sample wheel dial.
@@ -44,4 +44,4 @@ The sample wheel positions should be marked 0-3 and the mask wheel positions sho
 
 ## FAQ
 Q. What do I do if the wheels aren't moving and the amber LED is blinking very fast?
-A. Manually move the sample wheel to position 0. Manually move the mask wheel to position 1. Twist the sample nob on the control PCB to position 0. Move the mask wheel slider switch to position 1. Push the reset button on the Arduino on the control PCB.
+A. Manually move the sample wheel to position 0. Manually move the mask wheel to position 1. Twist the sample selector on the control PCB to position 0. Move the mask wheel slider switch to position 1. Push the reset button on the Arduino on the control PCB. The amber LED should now be blinking slowly and the system should be ready for use.
