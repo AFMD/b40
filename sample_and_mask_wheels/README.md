@@ -8,7 +8,7 @@ The controller logic is governed by [this Arduino firmware](https://github.com/A
 
 The stepper motor driver boards are from pololu.com, [product number 2971](https://www.pololu.com/product/2971): "DRV8880 Stepper Motor Driver Carrier"
 
-The motors in the system are bipolar steppers (currently VSS25.200.1.2-UHVG by Phytron). They must be wired so that the two phases of each motor are connected on neighboring screw terminals (as shown in the schematic above). These are 200 step per revolution motors. The pololu motor driver boards are left in their default configuration, except M1 is connected to V3P3 so that they're in 1/16 microstepping mode and the firmware delivers 800 pulses on the step pin for a quarter turn (one sample/mask change). The pulses are delivered at 100Hz, so it takes 4 seconds for an adjacent wheel position change and 8 seconds to change to the opposite wheel position.
+The motors in the system are bipolar steppers (currently VSS25.200.1.2-UHVG by Phytron) with 26 AWG wiring. They must be wired so that the two phases of each motor are connected on neighboring screw terminals (as shown in the schematic above). These are 200 step per revolution motors. The pololu motor driver boards are left in their default configuration, except M1 is connected to V3P3 so that they're in 1/16 microstepping mode and the firmware delivers 800 pulses on the step pin for a quarter turn (one sample/mask change). The pulses are delivered at 100Hz, so it takes 4 seconds for an adjacent wheel position change and 8 seconds to change to the opposite wheel position.
 
 The sample wheel positions should be marked 0-3 and the mask wheel positions should be marked 1-4.
 
